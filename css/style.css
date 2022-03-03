@@ -1,0 +1,12 @@
+.bg-black {
+    background-color: #1e272e;
+}
+
+.color-white {
+    color: #dff9fb !important;
+}
+
+a:hover {
+    color: #b8fdff !important;
+}
+

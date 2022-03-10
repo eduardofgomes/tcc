@@ -9,15 +9,3 @@
 a:hover {
     color: #b8fdff !important;
 }
-
-.gallery_product { 
-    margin-bottom: 30px; 
-}
-
-.gallery_product .title{ 
-    color:#fff; margin: 0; position:relative; bottom:50px; left:10px; 
-} 
-
-.gallery_product .title small{ 
-    display:block; 
-}

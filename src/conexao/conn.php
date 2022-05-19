@@ -1,9 +1,9 @@
 <?php
 
-    $hostname = "sql102.epizy.com";
-    $database = "epiz_31454917_rifa";
-    $username = "epiz_31454917";
-    $password = "tyvw9mgQspJ3";
+    $hostname = "localhost";
+    $database = "quadra";
+    $username = "root";
+    $password = "";
 
     if($conecta = mysqli_connect($hostname, $username, $password, $database)){
         echo 'Conectado ao banco de dados '.$database.'.....';

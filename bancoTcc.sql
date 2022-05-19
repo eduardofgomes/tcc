@@ -13,12 +13,12 @@ USE `quadra` ;
 -- Table `usuario`
 -- -----------------------------------------------------
 CREATE TABLE `usuario` (
-  `logjn` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_usuario`),
-  UNIQUE INDEX `logjn_UNIQUE` (`logjn` ASC) ,
+  UNIQUE INDEX `login_UNIQUE` (`login` ASC) ,
   UNIQUE INDEX `tipo_usuario_idtable2_UNIQUE` (`id_usuario` ASC) )
 ENGINE = InnoDB;
 

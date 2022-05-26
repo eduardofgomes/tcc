@@ -17,7 +17,7 @@
 }
 
 a:hover {
-    color: #b8fdff !important;
+    color: #2e5a5c !important;
 }
 
 #logo {
@@ -25,12 +25,15 @@ a:hover {
 }
 
 .btn-special {
-    color: #1e272e;
-    background-color: #fff;
+    color: #2e5a5c;
+    background-color: #ffffff;
 }
 
 .btn-special:hover {
-  background-color: #fff;
-  color: black;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  border-width: 0.15rem;
+  border-radius: 1rem;
   box-shadow: none;
 }

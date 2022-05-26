@@ -19,3 +19,18 @@
 a:hover {
     color: #b8fdff !important;
 }
+
+#logo {
+    width: 2rem !important;
+}
+
+.btn-special {
+    color: #1e272e;
+    background-color: #fff;
+}
+
+.btn-special:hover {
+  background-color: #fff;
+  color: black;
+  box-shadow: none;
+}

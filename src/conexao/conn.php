@@ -5,8 +5,9 @@
     $username = "root";
     $password = "";
 
-    if($conecta = mysqli_connect($hostname, $username, $password, $database)){
-        echo 'Conectado ao banco de dados '.$database.'.....';
-    } else {
-        echo 'Erro: '.mysqli_connect_error();
+    try{
+        $pdo = new PDO('mysql:host='.$hostname.';dbname='.$dbname, $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo 'Error: '.$e->getMessage();
     }

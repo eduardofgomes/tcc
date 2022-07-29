@@ -4,7 +4,7 @@ include('../../conexao/conn.php');
 
 $requestData = $_REQUEST;
 
-if(empty(requestData['NOME'])){
+if(empty($requestData['NOME'])){
     $dados = array(
         "tipo" => 'error',
         "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s)'

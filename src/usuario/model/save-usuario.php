@@ -4,7 +4,7 @@
 
     $requestData = $_REQUEST;
     
-    if(empty($requestData['NOME'])){
+    if(empty($requestData['nome'])){
         
         $dados = array(
             "tipo" => 'error',
@@ -12,19 +12,19 @@
         );
     } else {
         
-        $ID = isset($requestData['ID']) ? $requestData['ID'] : '';
+        $ID = isset($requestData['id']) ? $requestData['id'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
         if($operacao == 'insert'){
             
             try{
-                $stmt = $pdo->prepare('INSERT INTO USUARIO (NOME, CELULAR, LOGIN, SENHA, TIPO_ID) VALUES (:a, :b, :c, :d, :e)');
+                $stmt = $pdo->prepare('INSERT INTO cidadao (nome, email, foto, senha, rg) VALUES (:a, :b, :c, :d, :e)');
                 $stmt->execute(array(
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['CELULAR'],
-                    ':c' => $requestData['LOGIN'],
-                    ':d' => md5($requestData['SENHA']),
-                    ':e' => $requestData['TIPO_ID']
+                    ':a' => $requestData['nome'],
+                    ':b' => $requestData['email'],
+                    ':c' => $requestData['foto'],
+                    ':d' => md5($requestData['senha']),
+                    ':e' => $requestData['rg']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -37,16 +37,16 @@
                 );
             }
         } else {
-           
+    
             try{
-                $stmt = $pdo->prepare('UPDATE VENDEDOR SET NOME = :a, CELULAR = :b, LOGIN = :c, SENHA = :d, TIPO_ID = :e WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE cidadao SET nome = :a, email = :b, foto = :c, senha = :d, rg = :e WHERE ID = :id');
                 $stmt->execute(array(
-                    ':id' => $ID,
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['CELULAR'],
-                    ':c' => $requestData['LOGIN'],
-                    ':d' => md5($requestData['SENHA']),
-                    ':e' => $requestData['TIPO_ID']
+                    ':id' => $requestData['id_usuario'],
+                    ':a' => $requestData['nome'],
+                    ':b' => $requestData['email'],
+                    ':c' => $requestData['foto'],
+                    ':d' => md5($requestData['senha']),
+                    ':e' => $requestData['rg']
                 ));
                 $dados = array(
                     "tipo" => 'success',

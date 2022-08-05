@@ -13,7 +13,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/comprador/modelo/save-comprador.php',
+            url: 'src/cidadao/model/save-cidadao.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'e-rifa',

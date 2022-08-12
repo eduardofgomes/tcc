@@ -16,7 +16,7 @@ $(document).ready(function() {
             url: 'src/cidadao/model/save-cidadao.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'e-rifa',
+                    title: 'SGQP',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

@@ -13,22 +13,32 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-        <a class="navbar-brand" href="#">
-            <img class="img-social color-white" id="logo" src="img/logo.png" alt="LOGO">  SELT
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top text-white shadow">
+        <a class="navbar-brand">
+            <img src="img/logo.png" alt="SGQP" width="50" height="50">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="mynav">
-            <ul class="navbar-nav">
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link color-white" href="src/cidadao/visao/login.html">Entrar</a>
+                    <a class="nav-link text-white" href="home.html"><i class="fa-solid fa-house"></i> Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link color-white" href="src/cidadao/visao/cadastro.html">Cadastrar-se</a>
+                    <a class="nav-link text-white" href="src/vendedor/visao/list-vendedor.html"><i class="fa-solid fa-sack-dollar"></i> Usuários</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="src/comprador/visao/list-comprador.html"><i class="fa-solid fa-comments-dollar"></i> Cidadãos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="src/tipo/visao/list-tipo.html"><i class="fa-solid fa-user"></i> Tipos de Usuário</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-receipt"></i> Reservar</a>
+                </li>
+            </ul>
+                <a class="nav-link text-white" href="#"><i class="fa-solid fa-right-from-bracket"></i> entrar</a>
         </div>
     </nav>
     <br>

@@ -22,8 +22,8 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
 
-                $('#modal-comprador').modal('hide')
-                $('#table-comprador').DataTable().ajax.reload()
+                $('#modal-cidadao').modal('hide')
+                $('#table-cidadao').DataTable().ajax.reload()
             }
         })
     })

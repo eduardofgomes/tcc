@@ -2,9 +2,9 @@
 
 include('../../conexao/conn.php');
 
-$ID = $_REQUEST['ID'];
+$ID = $_REQUEST['id'];
 
-$sql = "DELETE FROM usuario WHERE ID = $ID";
+$sql = "DELETE FROM usuario WHERE id = $ID";
 
 $resultado = $pdo->query($sql);
 

@@ -7,7 +7,7 @@
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['NOME'])){
+    if(empty($requestData['nome'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
@@ -15,20 +15,20 @@
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
-        $ID = isset($requestData['ID']) ? $requestData['ID'] : '';
+        $ID = isset($requestData['id']) ? $requestData['id'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
         // Verifica se é para cadastrar um novo registro
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO usuario (NOME, CELULAR, LOGIN, SENHA, TIPO_ID) VALUES (:a, :b, :c, :d, :e)');
+                $stmt = $pdo->prepare('INSERT INTO usuario (nome, email, login, senha, tipo_id) VALUES (:a, :b, :c, :d, :e)');
                 $stmt->execute(array(
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['CELULAR'],
-                    ':c' => $requestData['LOGIN'],
-                    ':d' => md5($requestData['SENHA']),
-                    ':e' => $requestData['TIPO_ID']
+                    ':a' => $requestData['nome'],
+                    ':b' => $requestData['email'],
+                    ':c' => $requestData['login'],
+                    ':d' => md5($requestData['senha']),
+                    ':e' => $requestData['tipo_id']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -43,14 +43,14 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE usuario SET NOME = :a, CELULAR = :b, LOGIN = :c, SENHA = :d, TIPO_ID = :e WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE usuario SET nome = :a, email = :b, login = :c, senha = :d, tipo_id = :e WHERE id = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => $requestData['NOME'],
-                    ':b' => $requestData['CELULAR'],
-                    ':c' => $requestData['LOGIN'],
-                    ':d' => md5($requestData['SENHA']),
-                    ':e' => $requestData['TIPO_ID']
+                    ':a' => $requestData['nome'],
+                    ':b' => $requestData['email'],
+                    ':c' => $requestData['login'],
+                    ':d' => md5($requestData['senha']),
+                    ':e' => $requestData['tipo_id']
                 ));
                 $dados = array(
                     "tipo" => 'success',

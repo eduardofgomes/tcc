@@ -1,7 +1,7 @@
 <?php
 
     $hostname = "localhost";
-    $database = "quadra";
+    $dbname = "quadra";
     $username = "root";
     $password = "";
 

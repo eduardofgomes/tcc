@@ -23,7 +23,7 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#CELULAR').val(dado.dados.CELULAR)
+                        $('#CELULAR').val(dado.dados.EMAIL)
                         $('#LOGIN').val(dado.dados.LOGIN)
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#TIPO_ID').empty()
@@ -53,7 +53,7 @@ $(document).ready(function() {
                     $('#modal-usuario').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'E-RIFA', // Título da janela SweetAlert
+                        title: 'Sistema de gerenciamento de quadras', // Título da janela SweetAlert
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // usuario de retorno [success, info ou error]
                         confirmButtonText: 'OK'

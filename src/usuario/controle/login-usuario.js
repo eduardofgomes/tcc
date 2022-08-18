@@ -14,7 +14,7 @@ $(document).ready(function() {
             url: 'src/usuario/modelo/login-usuario.php',
             success: function(dados) {
                 if(dados.tipo == 'success') {
-                    $(location).attr('href', 'sistema.html')
+                    $(location).attr('href', 'home.html')
                 } else {
                     Swal.fire({
                         title: 'e-rifa',

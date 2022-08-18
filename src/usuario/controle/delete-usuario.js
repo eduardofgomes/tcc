@@ -7,7 +7,7 @@ $(document).ready(function() {
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'e-rifa',
+            title: 'Sistema de gerenciamento de quadras',
             text: "Deseja realmente excluir esse registro?",
             icon: 'question',
             showCancelButton: true,

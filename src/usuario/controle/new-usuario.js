@@ -5,7 +5,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo usuario de acesso')
+        $('.modal-title').append('Adicionar novo usuario')
         
         $('.modal-body').load('src/usuario/visao/form-usuario.html', function(){
             $.ajax({

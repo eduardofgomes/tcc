@@ -8,32 +8,43 @@
     <title>Agendamento de quadras</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+    <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
+    <link rel="stylesheet" href="libs/DataTables/datatables.css">
     <link rel="shortcut icon" href="" type="image/x-icon">
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-        <a class="navbar-brand" href="#">
-            <img class="img-social color-white" id="logo" src="img/logo.png" alt="LOGO">  SELT
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top text-white shadow">
+        <a class="navbar-brand">
+            <img src="img/logo.png" alt="SGQP" width="50" height="50">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="mynav">
-            <ul class="navbar-nav">
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link color-white" href="src/cidadao/visao/login.html">Entrar</a>
+                    <a class="nav-link text-white" href="index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link color-white" href="src/cidadao/visao/cadastro.html">Cadastrar-se</a>
+                    <a class="nav-link text-white" href="src/usuario/visao/list-usuario.html"> Usuários </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="src/cidadao/visao/list-cidadao.html"><i class=""></i> Cidadãos </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="src/tipo/visao/list-tipo.html"><i class=""></i> Tipos de Usuários </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="src/reserva/visao/list-reserva.html"><i class=""></i> Reservar </a>
+                </li>
+            </ul>
+                <a class="nav-link text-white" href="index.html"><i class=""></i>entrar </a>
         </div>
     </nav>
-    <br>
 
-    <div id="Sliders" class="carousel slide" data-ride="carousel">
+    <div id="Sliders" id="content" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#Sliders" data-slide-to="0" class="active"></li>
             <li data-target="#Sliders" data-slide-to="1"></li>
@@ -84,6 +95,10 @@
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="libs/fontawesome/js/all.js"></script>
+    <script src="libs/DataTables/datatables.js"></script>
+    <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
 </body>
 
 </html>

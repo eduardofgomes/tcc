@@ -27,8 +27,7 @@
                     ':a' => $requestData['NOME'],
                     ':b' => $requestData['EMAIL'],
                     ':c' => $requestData['LOGIN'],
-                    ':d' => md5($requestData['SENHA']),
-                    ':e' => $requestData['tipo_id']
+                    ':d' => md5($requestData['SENHA'])
                 )); 
                 $dados = array(
                     "tipo" => 'success',

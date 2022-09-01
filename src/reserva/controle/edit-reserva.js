@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-cidadao').on('click', 'button.btn-edit', function(e) {
+    $('#table-reserva').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault();
 
@@ -16,20 +16,16 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/cidadao/modelo/view-cidadao.php',
+            url: 'src/reserva/modelo/view-reserva.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/cidadao/visao/login.html', function() {
-                        $('#NOME').val(dado.dados.NOME)
-                        $('#EMAIL').val(dado.dados.EMAIL)
-                        $('#FOTO').val(dado.dados.FOTO)
-                        $('#SENHA').val(dado.dados.SENHA)
-                        $('#RG').val(dado.dados.RG)
+                    $('.modal-body').load('src/reserva/visao/login.html', function() {
+                        $('#DATA').val(dado.dados.DATA)
                         $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()
-                    $('#modal-cidadao').modal('show')
+                    $('#modal-reserva').modal('show')
                 } else {
                     Swal.fire({
                         title: 'quadra',

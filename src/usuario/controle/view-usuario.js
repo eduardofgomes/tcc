@@ -22,17 +22,19 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
-                        $('#NOME').val(dado.dados.NOME)
-                        $('#NOME').attr('readonly', 'true')
                         $('#CELULAR').val(dado.dados.EMAIL)
                         $('#CELULAR').attr('readonly', 'true')
                         $('#LOGIN').val(dado.dados.LOGIN)
                         $('#LOGIN').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
+                        
+                        /*
                         $('#TIPO_ID').empty()
 
                         var TIPO_ID = dado.dados.TIPO_ID
+                        */
+
 
                         //Consultar todos os tipos cadastrados no banco de dados
                         /*$.ajax({

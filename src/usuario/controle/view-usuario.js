@@ -34,8 +34,8 @@ $(document).ready(function() {
 
                         var TIPO_ID = dado.dados.TIPO_ID
 
-                        //Consultar todos os tipos cadastrados no banco de daods
-                        $.ajax({
+                        //Consultar todos os tipos cadastrados no banco de dados
+                        /*$.ajax({
                             dataType: 'json',
                             type: 'POST',
                             assync: true,
@@ -49,6 +49,7 @@ $(document).ready(function() {
                                 }
                             }
                         })
+                        */
 
                     })
                     $('.btn-save').hide()

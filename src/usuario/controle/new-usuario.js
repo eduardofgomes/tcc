@@ -7,7 +7,7 @@ $(document).ready(function() {
 
         $('.modal-title').append('Adicionar novo usuario')
         
-        $('.modal-body').load('src/usuario/visao/form-usuario.html', function(){
+        $('.modal-body').load('src/usuario/visao/form-usuario.html')/*, function(){
             $.ajax({
             dataType: 'json',
             type: 'POST',
@@ -19,7 +19,8 @@ $(document).ready(function() {
                 }
             }  
         })
-    })
+    })*/
+    
 
         $('.btn-save').show()
         $('.btn-save').attr('data-operation', 'insert')

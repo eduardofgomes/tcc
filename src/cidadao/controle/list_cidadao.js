@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#table-vendedor').DataTable({
+    $('#table-cidadao').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/vendedor/modelo/list-vendedor.php",
+            "url": "src/cidadao/modelo/list-cidadao.php",
             "type": "POST"
         },
         "language": {
@@ -18,7 +18,11 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'CELULAR',
+                "data": 'EMAIL',
+                "className": 'text-center'
+            },
+            {
+                "data": 'RG',
                 "className": 'text-center'
             },
             {

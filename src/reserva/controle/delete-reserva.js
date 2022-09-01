@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#table-cidadao').on('click', 'button.btn-delete', function(e) {
+    $('#table-reserva').on('click', 'button.btn-delete', function(e) {
 
 
         e.preventDefault();
@@ -21,7 +21,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/cidadao/model/delete-cidadao.php',
+                    url: 'src/reserva/model/delete-reserva.php',
                     success: function(dados) {
                         Swal.fire({
                             title: 'quadra',
@@ -30,7 +30,7 @@ $(document).ready(function() {
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-cidadao').DataTable().ajax.reload()
+                        $('#table-reserva').DataTable().ajax.reload()
                     }
                 })
             }

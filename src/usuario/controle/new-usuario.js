@@ -5,9 +5,9 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo cidadao')
+        $('.modal-title').append('Adicionar novo usuario')
 
-        $('.modal-body').load('src/cidadao/visao/form-cidadao.html', function() {
+        $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
             $.ajax({
                 dataType: 'json',
                 type: 'POST',
@@ -23,12 +23,12 @@ $(document).ready(function() {
 
         $('.btn-save').show()
         $('.btn-save').attr('data-operation', 'insert')
-        $('#modal-cidadao').modal('show')
+        $('#modal-usuario').modal('show')
 
     })
 
     $('.close, #close').click(function(e) {
         e.preventDefault()
-        $('#modal-cidadao').modal('hide')
+        $('#modal-usuario').modal('hide')
     })
 })

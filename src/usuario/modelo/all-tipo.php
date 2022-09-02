@@ -7,7 +7,7 @@
     $resultado = $pdo->query($sql);
 
     if($resultado){
-        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
             $dados[] = array_map(null, $row);
         }
     }

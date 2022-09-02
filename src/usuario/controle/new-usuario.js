@@ -15,7 +15,7 @@ $(document).ready(function() {
                 url: 'src/usuario/modelo/all-tipo.php',
                 success: function(dados) {
                     for (const result of dados) {
-                        $('#tipo_id').append(`<option value="${result.ID}">${result.NOME}</option>`)
+                        $('#TIPO_USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
                     }
                 }
             })

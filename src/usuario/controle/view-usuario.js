@@ -29,29 +29,29 @@ $(document).ready(function() {
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         
-                        /*
-                        $('#TIPO_ID').empty()
+                        
+                        $('#TIPO_USUARIO_ID').empty()
 
-                        var TIPO_ID = dado.dados.TIPO_ID
+                        var TIPO_USUARIO_ID = dado.dados.TIPO_USUARIO_ID
                         
 
 
                         //Consultar todos os tipos cadastrados no banco de dados
-                        /*$.ajax({
+                        $.ajax({
                             dataType: 'json',
                             type: 'POST',
                             assync: true,
                             url: 'src/tipo/modelo/all-tipo.php',
                             success: function(dados) {
                                 for (const result of dados) {
-                                    if (result.ID == TIPO_ID) {
-                                        $('#TIPO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
+                                    if (result.ID == TIPO_USUARIO_ID) {
+                                        $('#TIPO_USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
                                     }
 
                                 }
                             }
                         })
-                        */
+                        
 
                     })
                     $('.btn-save').hide()

@@ -22,8 +22,8 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
-                        $('#CELULAR').val(dado.dados.EMAIL)
-                        $('#CELULAR').attr('readonly', 'true')
+                        $('#EMAIL').val(dado.dados.EMAIL)
+                        $('#EMAIL').attr('readonly', 'true')
                         $('#LOGIN').val(dado.dados.LOGIN)
                         $('#LOGIN').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)

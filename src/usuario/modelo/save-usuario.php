@@ -26,7 +26,7 @@
                 $stmt->execute(array(
                     ':a' => $requestData['EMAIL'],
                     ':b' => $requestData['LOGIN'],
-                    ':c' => $requestData['TIPO_USUARIO_ID']
+                    ':c' => $requestData['TIPO_USUARIO_ID'],
                     ':d' => md5($requestData['SENHA'])
                 )); 
                 $dados = array(
@@ -47,7 +47,7 @@
                     ':id' => $ID,
                     ':a' => $requestData['EMAIL'],
                     ':b' => $requestData['LOGIN'],
-                    ':c' => $requestData['TIPO_USUARIO_ID']
+                    ':c' => $requestData['TIPO_USUARIO_ID'],
                     ':d' => md5($requestData['SENHA'])
                 ));
                 $dados = array(

@@ -33,7 +33,7 @@ $(document).ready(function() {
                         $('#TIPO_ID').empty()
 
                         var TIPO_ID = dado.dados.TIPO_ID
-                        */
+                        
 
 
                         //Consultar todos os tipos cadastrados no banco de dados

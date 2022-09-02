@@ -29,19 +29,16 @@ $(document).ready(function() {
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         
-                        
                         $('#TIPO_USUARIO_ID').empty()
 
                         var TIPO_USUARIO_ID = dado.dados.TIPO_USUARIO_ID
                         
-
-
                         //Consultar todos os tipos cadastrados no banco de dados
                         $.ajax({
                             dataType: 'json',
                             type: 'POST',
                             assync: true,
-                            url: 'src/tipo/modelo/all-tipo.php',
+                            url: 'src/usuario/modelo/all-tipo.php',
                             success: function(dados) {
                                 for (const result of dados) {
                                     if (result.ID == TIPO_USUARIO_ID) {

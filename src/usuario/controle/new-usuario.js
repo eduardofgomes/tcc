@@ -12,7 +12,7 @@ $(document).ready(function() {
                 dataType: 'json',
                 type: 'POST',
                 assync: true,
-                url: 'src/tipo/modelo/all-tipo.php',
+                url: 'src/usuario/modelo/all-tipo.php',
                 success: function(dados) {
                     for (const result of dados) {
                         $('#tipo_id').append(`<option value="${result.ID}">${result.NOME}</option>`)

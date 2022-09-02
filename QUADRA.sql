@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE `TIPO_USUARIO` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `TIPO` VARCHAR(45) NOT NULL,
+  `NOME` VARCHAR(45) NOT NULL,
   `USUARIO_ID` INT NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;

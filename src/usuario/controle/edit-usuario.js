@@ -23,7 +23,7 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#CELULAR').val(dado.dados.EMAIL)
+                        $('#EMAIL').val(dado.dados.EMAIL)
                         $('#LOGIN').val(dado.dados.LOGIN)
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#TIPO_ID').empty()
@@ -36,7 +36,7 @@ $(document).ready(function() {
                             dataType: 'json',
                             type: 'POST',
                             assync: true,
-                            url: 'src/tipo/modelo/all-tipo.php',
+                            url: 'src/usuario/modelo/all-tipo.php',
                             success: function(dados) {
                                 for (const result of dados) {
                                     if (result.ID == TIPO_ID) {

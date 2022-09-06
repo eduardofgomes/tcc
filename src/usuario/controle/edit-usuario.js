@@ -22,31 +22,22 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
+                        switch (dado.dados.TIPO_USUARIO) {
+                            case 1:
+                                $('#TIPO_USUARIO').append(`<option value="1">Usuário</option>`)
+                            break;
+                            case 2:
+                                $('#TIPO_USUARIO').append(`<option value="2">ADM</option>`)
+                            break;
+                            case 3:
+                                $('#TIPO_USUARIO').append(`<option value="3">Zelador</option>`)
+                                break;
+                        }
                         $('#NOME').val(dado.dados.NOME)
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#LOGIN').val(dado.dados.LOGIN)
                         $('#SENHA').val(dado.dados.SENHA)
-                        $('#TIPO_ID').empty()
                         $('#ID').val(dado.dados.ID)
-
-                        var TIPO_ID = dado.dados.TIPO_ID
-
-                        //Consultar todos os tipos cadastrados no banco de dados
-                        $.ajax({
-                            dataType: 'json',
-                            type: 'POST',
-                            assync: true,
-                            url: 'src/usuario/modelo/all-tipo.php',
-                            success: function(dados) {
-                                for (const result of dados) {
-                                    if (result.ID == TIPO_ID) {
-                                        $('#TIPO_ID').append(`<option value="${result.ID}" selected>${result.NOME}</option>`)
-                                    } else {
-                                        $('#TIPO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
-                                    }
-                                }
-                            }
-                        })
                     })
                     $('.btn-save').show()
                     $('.btn-save').removeAttr('data-operation')

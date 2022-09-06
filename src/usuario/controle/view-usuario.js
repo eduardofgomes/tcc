@@ -22,6 +22,19 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
+                        $('#TIPO_USUARIO').attr('readonly', 'true')
+
+                        switch (dado.dados.TIPO_USUARIO) {
+                            case 1:
+                                $('#TIPO_USUARIO').append(`<option value="1">Usuário</option>`)
+                            break;
+                            case 2:
+                                $('#TIPO_USUARIO').append(`<option value="2">ADM</option>`)
+                            break;
+                            case 3:
+                                $('#TIPO_USUARIO').append(`<option value="3">Zelador</option>`)
+                                break;
+                        }
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
                         $('#LOGIN').val(dado.dados.LOGIN)
@@ -29,25 +42,6 @@ $(document).ready(function() {
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         
-                        $('#TIPO_USUARIO_ID').empty()
-
-                        var TIPO_USUARIO_ID = dado.dados.TIPO_USUARIO_ID
-                        
-                        //Consultar todos os tipos cadastrados no banco de dados
-                        $.ajax({
-                            dataType: 'json',
-                            type: 'POST',
-                            assync: true,
-                            url: 'src/usuario/modelo/all-tipo.php',
-                            success: function(dados) {
-                                for (const result of dados) {
-                                    if (result.ID == TIPO_USUARIO_ID) {
-                                        $('#TIPO_USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
-                                    }
-
-                                }
-                            }
-                        })
                         
 
                     })

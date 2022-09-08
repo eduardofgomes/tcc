@@ -7,7 +7,9 @@ $(document).ready(function() {
 
         $('.modal-title').append('Adicionar novo usuario')
 
-        $('.modal-body').load('src/usuario/visao/form-usuario.html')
+        $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
+            
+        })
 
         $('.btn-save').show()
         $('.btn-save').attr('data-operation', 'insert')

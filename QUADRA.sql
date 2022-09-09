@@ -24,63 +24,67 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cidadao`
+-- Estrutura da tabela `CIDADAO`
 --
 
-CREATE TABLE `cidadao` (
-  `ID` int(11) NOT NULL,
-  `NOME` varchar(45) NOT NULL,
-  `EMAIL` varchar(45) NOT NULL,
-  `FOTO` mediumblob NOT NULL,
-  `SENHA` varchar(30) NOT NULL,
-  `RG` varchar(9) NOT NULL,
-  `USUARIO_ID` int(11) NOT NULL,
-  `TIPO_ID` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `CIDADAO` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(45) NOT NULL,
+  `EMAIL` VARCHAR(45) NOT NULL,
+  `FOTO` MEDIUMBLOB NOT NULL,
+  `SENHA` VARCHAR(30) NOT NULL,
+  `RG` VARCHAR(9) NOT NULL,
+  `USUARIO_ID` INT NOT NULL,
+  `TIPO_ID` INT(1) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `quadras`
+-- Estrutura da tabela `QUADRAS`
 --
 
-CREATE TABLE `quadras` (
-  `ID` int(11) NOT NULL,
-  `NUMERO` int(6) NOT NULL,
-  `NOME` varchar(45) NOT NULL,
-  `BAIRRO` varchar(45) NOT NULL,
-  `LOGRADOURO` varchar(45) NOT NULL,
-  `RESERVAS_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE  TABLE `QUADRAS` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `NUMERO` INT(6) NOT NULL,
+  `NOME` VARCHAR(45) NOT NULL,
+  `BAIRRO` VARCHAR(45) NOT NULL,
+  `LOGRADOURO` VARCHAR(45) NOT NULL,
+  `RESERVAS_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reservas`
+-- Estrutura da tabela `RESERVAS`
 --
 
-CREATE TABLE `reservas` (
-  `ID` int(11) NOT NULL,
-  `DATA` datetime(6) NOT NULL,
-  `USUARIO_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE  TABLE `RESERVAS` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `DATA` DATETIME(6) NOT NULL,
+  `USUARIO_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipo_usuario`
+-- Estrutura da tabela `TIPO_USUARIO`
 --
 
-CREATE TABLE `tipo_usuario` (
-  `ID` int(5) NOT NULL,
-  `nome` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE  TABLE `TIPO_USUARIO` (
+  `ID` INT(5) NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 --
--- Extraindo dados da tabela `tipo_usuario`
+-- Extraindo dados da tabela `TIPO_USUARIO`
 --
 
-INSERT INTO `tipo_usuario` (`ID`, `nome`) VALUES
+INSERT INTO `TIPO_USUARIO` (`ID`, `NOME`) VALUES
 (1, 'Cidadão'),
 (2, 'ADM'),
 (3, 'Zelador');
@@ -88,22 +92,30 @@ INSERT INTO `tipo_usuario` (`ID`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura da tabela `USUARIO`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `USUARIO` (
   `LOGIN` varchar(45) NOT NULL,
   `SENHA` varchar(45) NOT NULL,
-  `ID` int(11) NOT NULL,
+  `ID` INT(11) NOT NULL,
   `EMAIL` varchar(45) NOT NULL,
-  `tipo_id_user` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `TIPO_ID_USER` INT(1) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE `USUARIO` (
+  `LOGIN` VARCHAR(45) NOT NULL,
+  `SENHA` VARCHAR(45) NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `EMAIL` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Extraindo dados da tabela `USUARIO`
 --
 
-INSERT INTO `usuario` (`LOGIN`, `SENHA`, `ID`, `EMAIL`, `tipo_id_user`) VALUES
+INSERT INTO `USUARIO` (`LOGIN`, `SENHA`, `ID`, `EMAIL`, `TIPO_ID_USER`) VALUES
 ('totozo', '202cb962ac59075b964b07152d234b70', 1, 'natan@gmail.com', 3);
 
 --
@@ -111,33 +123,33 @@ INSERT INTO `usuario` (`LOGIN`, `SENHA`, `ID`, `EMAIL`, `tipo_id_user`) VALUES
 --
 
 --
--- Índices para tabela `cidadao`
+-- Índices para tabela `CIDADAO`
 --
-ALTER TABLE `cidadao`
+ALTER TABLE `CIDADAO`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `quadras`
+-- Índices para tabela `QUADRAS`
 --
-ALTER TABLE `quadras`
+ALTER TABLE `QUADRAS`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `reservas`
+-- Índices para tabela `RESERVAS`
 --
-ALTER TABLE `reservas`
+ALTER TABLE `RESERVAS`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `tipo_usuario`
+-- Índices para tabela `TIPO_USUARIO`
 --
-ALTER TABLE `tipo_usuario`
+ALTER TABLE `TIPO_USUARIO`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `usuario`
+-- Índices para tabela `USUARIO`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `USUARIO`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -145,34 +157,34 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de tabela `cidadao`
+-- AUTO_INCREMENT de tabela `CIDADAO`
 --
-ALTER TABLE `cidadao`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `CIDADAO`
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `quadras`
+-- AUTO_INCREMENT de tabela `QUADRAS`
 --
-ALTER TABLE `quadras`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `QUADRAS`
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `reservas`
+-- AUTO_INCREMENT de tabela `RESERVAS`
 --
-ALTER TABLE `reservas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `RESERVAS`
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tipo_usuario`
+-- AUTO_INCREMENT de tabela `TIPO_USUARIO`
 --
-ALTER TABLE `tipo_usuario`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `TIPO_USUARIO`
+  MODIFY `ID` INT(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT de tabela `USUARIO`
 --
-ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `USUARIO`
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

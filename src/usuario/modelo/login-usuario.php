@@ -7,7 +7,7 @@ $sql =$pdo->query("SELECT *, count(ID) as achou FROM  USUARIO WHERE LOGIN  ='".$
 while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
     if($resultado['achou'] == 1) {
         session_start();
-        $_SESSION['NOME'] = $resultado['NOME'];
+        $_SESSION['LOGIN'] = $resultado['LOGIN'];
         $_SESSION['TIPO'] = $resultado['TIPO_ID_USUARIO'];
         $dados = array(
             'tipo' => 'success',

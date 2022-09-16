@@ -29,6 +29,26 @@ $(document).ready(function() {
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         
+                        var PROMOCAO_ID = dado.dados.PROMOCAO_ID
+
+                        //Consultar todos os tipos cadastrados no banco de daods
+                        $.ajax({
+                            dataType: 'json',
+                            type: 'POST',
+                            assync: true,
+                            url: 'src/promocao/modelo/all-promocao.php',
+                            success: function(dados) {
+                                for (const result of dados) {
+                                    if (result.ID == PROMOCAO_ID) {
+                                        $('#PROMOCAO_ID').append(`<option value="${result.ID}">${result.TITULO}</option>`)
+                                    }
+
+                                }
+                            }
+                        })
+
+                    })
+                        
                         
 
                     })

@@ -6,7 +6,7 @@ $requestData = $_REQUEST;
 
 $colunas = $requestData['columns'];
 
-$sql = "SELECT ID, NOME FROM TIPO WHERE 1=1 ";
+$sql = "SELECT ID, NOME FROM TIPO_USUARIO WHERE 1=1 ";
 
 $resultado = $pdo->query($sql);
 $qtdeLinhas = $resultado->rowCount();

@@ -55,7 +55,7 @@ $(document).ready(function() {
                     $('#modal-cidadao').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'e-Rifa', // Título da janela SweetAler
+                        title: 'Sistema de gerenciamento de quadras', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // cidadao de retorno [success, info ou error]
                         confirmButtonText: 'OK'

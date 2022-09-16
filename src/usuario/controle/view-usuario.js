@@ -21,20 +21,7 @@ $(document).ready(function() {
             url: 'src/usuario/modelo/view-usuario.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {
-                        $('#TIPO_USUARIO').attr('readonly', 'true')
-
-                        switch (dado.dados.TIPO_USUARIO) {
-                            case 1:
-                                $('#TIPO_USUARIO').append(`<option value="1">Usuário</option>`)
-                            break;
-                            case 2:
-                                $('#TIPO_USUARIO').append(`<option value="2">ADM</option>`)
-                            break;
-                            case 3:
-                                $('#TIPO_USUARIO').append(`<option value="3">Zelador</option>`)
-                                break;
-                        }
+                    $('.modal-body').load('src/usuario/visao/form-usuario.html', function() {                       
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
                         $('#LOGIN').val(dado.dados.LOGIN)

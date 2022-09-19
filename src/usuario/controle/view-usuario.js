@@ -30,7 +30,7 @@ $(document).ready(function() {
                         $('#SENHA').attr('readonly', 'true')
                         $('#TIPO_ID').empty()
                         
-                        var TIPO_USUARIO_ID = dado.dados.TIPO_USUARIO_ID
+                        var TIPO_ID = dado.dados.TIPO_ID
 
                         //Consultar todos os tipos cadastrados no banco de daods
                         $.ajax({
@@ -40,10 +40,9 @@ $(document).ready(function() {
                             url: 'src/tipo/modelo/all-tipo.php',
                             success: function(dados) {
                                 for (const result of dados) {
-                                    if (result.ID == TIPO_USUARIO_ID) {
-                                        $('#TIPO_USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
+                                    if (result.ID == TIPO_ID) {
+                                        $('#TIPO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
                                     }
-
                                 }
                             }
                         })

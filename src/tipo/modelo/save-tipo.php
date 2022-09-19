@@ -22,7 +22,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO TIPO_USUARIO (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO TIPO (NOME) VALUES (:a)');
                 $stmt->execute(array(
                     ':a' => $requestData['NOME']
                 ));
@@ -39,7 +39,7 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE TIPO_USUARIO SET NOME = :a WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                     ':a' => $requestData['NOME']

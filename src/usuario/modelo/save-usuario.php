@@ -22,12 +22,12 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, LOGIN, TIPO_ID_USER, SENHA) VALUES (:a, :b, :c, :d)');
+                $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, LOGIN, SENHA, TIPO_ID) VALUES (:a, :b, :c, :d)');
                 $stmt->execute(array(
                     ':a' => $requestData['EMAIL'],
                     ':b' => $requestData['LOGIN'],
-                    ':c' => $requestData['TIPO_ID_USER'],
-                    ':d' => md5($requestData['SENHA'])
+                    ':c' => md5($requestData['SENHA']),
+                    ':d' => $requestData['TIPO_ID']
                 )); 
                 $dados = array(
                     "tipo" => 'success',
@@ -36,19 +36,19 @@
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do curso.'
+                    "mensagem" => 'Não foi possível efetuar o cadastro do usuario.'
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE USUARIO SET EMAIL = :a, LOGIN = :b, SENHA = :c, TIPO_ID_USER = :d WHERE id = :id');
+                $stmt = $pdo->prepare('UPDATE USUARIO SET EMAIL = :a, LOGIN = :b, SENHA = :c, TIPO_ID = :d WHERE id = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                     ':a' => $requestData['EMAIL'],
                     ':b' => $requestData['LOGIN'],
-                    ':c' => $requestData['TIPO_ID_USER'],
-                    ':d' => md5($requestData['SENHA'])
+                    ':c' => md5($requestData['SENHA']),
+                    ':d' => $requestData['TIPO_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -57,7 +57,7 @@
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do registro.'
+                    "mensagem" => 'Não foi possível efetuar a alteração do registro.'
                 );
             }
         }

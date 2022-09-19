@@ -28,27 +28,25 @@ $(document).ready(function() {
                         $('#LOGIN').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
+                        $('#TIPO_ID').empty()
                         
-                        var PROMOCAO_ID = dado.dados.PROMOCAO_ID
+                        var TIPO_USUARIO_ID = dado.dados.TIPO_USUARIO_ID
 
                         //Consultar todos os tipos cadastrados no banco de daods
                         $.ajax({
                             dataType: 'json',
                             type: 'POST',
                             assync: true,
-                            url: 'src/promocao/modelo/all-promocao.php',
+                            url: 'src/tipo/modelo/all-tipo.php',
                             success: function(dados) {
                                 for (const result of dados) {
-                                    if (result.ID == PROMOCAO_ID) {
-                                        $('#PROMOCAO_ID').append(`<option value="${result.ID}">${result.TITULO}</option>`)
+                                    if (result.ID == TIPO_USUARIO_ID) {
+                                        $('#TIPO_USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
                                     }
 
                                 }
                             }
                         })
-
-                    })
-                        
                         
 
                     })

@@ -8,7 +8,7 @@ while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
     if($resultado['achou'] == 1) {
         session_start();
         $_SESSION['LOGIN'] = $resultado['LOGIN'];
-        $_SESSION['TIPO'] = $resultado['TIPO_ID_USUARIO'];
+        $_SESSION['TIPO'] = $resultado['TIPO_ID'];
         $dados = array(
             'tipo' => 'success',
             'mensagem' => 'Você entrou'

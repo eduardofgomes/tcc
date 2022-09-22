@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     $('.btn-login').click(function(e) {
 
@@ -27,4 +27,4 @@ $(document).ready(function() {
         })
     })
 
-})
+})*/

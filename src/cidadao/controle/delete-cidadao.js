@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $('#table-cidadao').on('click', 'button.btn-delete', function(e) {
 
-
         e.preventDefault();
 
         let ID = `ID=${$(this).attr('id')}`

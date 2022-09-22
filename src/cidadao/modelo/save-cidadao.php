@@ -68,12 +68,12 @@
                                 $ID = $resultado['ID'];
                             }
 
-                            $indice = count(array_filter($requestData['USUARIO_IDUSUARIO']));
+                            $indice = count(array_filter($requestData['USUARIO_ID']));
 
                             for($i=0; $i < $indice; $i++) {
                                 $stmt = $pdo->prepare('INSERT INTO AUTOR (TRABALHO_IDTRABALHO, USUARIO_IDUSUARIO) VALUES (:a, :b)');
                                 $stmt->execute(array(
-                                    ':a' => $IDTRABALHO,
+                                    ':a' => $ID,
                                     ':b' => $requestData['USUARIO_IDUSUARIO'][$i]
                                 ));
                             }
@@ -91,16 +91,14 @@
                     } else {
                         // Se minha variável operação estiver vazia então devo gerar os scripts de update
                         try{
-                            $stmt = $pdo->prepare('UPDATE TRABALHO SET TITULO = :a, ANO = :b, NROPAGINAS = :c, RESUMO = :d, ORIENTADOR = :e, COORIENTADOR = :f, ARQUIVO = :g WHERE IDTRABALHO = :id');
+                            $stmt = $pdo->prepare('UPDATE TRABALHO SET NOME = :a, EMAIL = :b, SENHA = :c, RG = :d, ORIENTADOR = :e WHERE IDTRABALHO = :id');
                             $stmt->execute(array(
                                 ':id' => $ID,
-                                ':a' => utf8_decode($requestData['TITULO']),
-                                ':b' => $requestData['ANO'],
-                                ':c' => $requestData['NROPAGINAS'],
-                                ':d' => utf8_decode($requestData['RESUMO']),
-                                ':e' => utf8_decode($requestData['ORIENTADOR']),
-                                ':f' => utf8_decode($requestData['COORIENTADOR']),
-                                ':g' => $requestData['ARQUIVO']
+                                ':a' => utf8_decode($requestData['NOME']),
+                                ':b' => $requestData['EMAIL'],
+                                ':c' => md5($requestData['SENHA']),
+                                ':d' => utf8_decode($requestData['RG']),
+                                ':e' => $novoNome
                             ));
 
                             $retorno = array(

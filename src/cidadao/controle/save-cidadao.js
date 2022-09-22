@@ -4,16 +4,19 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        let dados = $('#form-comprador').serialize()
+        url = "src/cidadao/modelo/save-cidadao.php"
 
-        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
+        var formData = new FormData(document.getElementById("form-cidadao"))
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            assync: true,
-            data: dados,
-            url: 'src/cidadao/model/save-cidadao.php',
+            data: formData,
+            url: url,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false,
             success: function(dados) {
                 Swal.fire({
                     title: 'SGQP',
@@ -23,7 +26,7 @@ $(document).ready(function() {
                 })
 
                 $('#modal-cidadao').modal('hide')
-                $('#table-cidadao').DataTable().ajax.reload()
+                //$('#table-cidadao').DataTable().ajax.reload()
             }
         })
     })

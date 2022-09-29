@@ -1,5 +1,5 @@
 <?php
-/*
+
 include('../../conexao/conn.php');
 
 $sql =$pdo->query("SELECT *, count(ID) as achou FROM USUARIO WHERE LOGIN  ='".$_REQUEST['LOGIN']."'AND SENHA ='".md5($_REQUEST['SENHA'])."'"); 

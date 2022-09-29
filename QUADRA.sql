@@ -52,12 +52,7 @@ CREATE  TABLE `TIPO` (
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
-/*
-INSERT INTO `TIPO_USUARIO` (`ID`, `NOME`) VALUES
-(1, 'Cidadão'),
-(2, 'ADM'),
-(3, 'Zelador');
-*/
+
 
 -- --------------------------------------------------------
 
@@ -69,10 +64,11 @@ INSERT INTO `TIPO_USUARIO` (`ID`, `NOME`) VALUES
 CREATE TABLE `USUARIO` (
   `LOGIN` varchar(45) NOT NULL,
   `SENHA` varchar(45) NOT NULL,
-  `ID` INT(11) NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `EMAIL` varchar(45) NOT NULL,
-  `TIPO_ID` INT NOT NULL
-) ENGINE=InnoDB;
+  `TIPO_ID` INT NOT NULL,
+  PRIMARY KEY (`ID`))
+   ENGINE = InnoDB;
 
 /*
 CREATE TABLE `USUARIO` (

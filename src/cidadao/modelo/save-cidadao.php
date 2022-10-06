@@ -1,12 +1,12 @@
 <?php
 
-     * Upload de imagens
+     // Upload de imagens
 
     // verifica se foi enviado um arquivo
-    if ( isset( $_FILES[ 'ARQUIVO' ][ 'name' ] ) && $_FILES[ 'ARQUIVO' ][ 'error' ] == 0 ) {
+    if ( isset( $_FILES[ 'FOTO' ][ 'name' ] ) && $_FILES[ 'FOTO' ][ 'error' ] == 0 ) {
 
-        $arquivo_tmp = $_FILES[ 'ARQUIVO' ][ 'tmp_name' ];
-        $nome = $_FILES[ 'ARQUIVO' ][ 'name' ];
+        $arquivo_tmp = $_FILES[ 'FOTO' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'FOTO' ][ 'name' ];
 
         // Pega a extensão
         $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
@@ -17,7 +17,7 @@
         // Somente imagens, .jpg;.jpeg;.gif;.png
         // Aqui eu enfileiro as extensões permitidas e separo por ';'
         // Isso serve apenas para eu poder pesquisar dentro desta String
-        if ( strstr ( '.pdf', $extensao ) ) {
+        if ( strstr ( '.png;.jpg;.jpeg', $extensao ) ) {
             // Cria um nome único para esta imagem
             // Evita que duplique as imagens no servidor.
             // Evita nomes com acentos, espaços e caracteres não alfanuméricos
@@ -37,8 +37,8 @@
                 $requestData = $_REQUEST;
 
                 // Verificação de campo obrigatórios do formulário
-                if(empty($requestData['TITULO'])){
-                    // Caso a variável venha vazia eu gero um retorno de erro do mesmo
+                if(empty($requestData['NOME'])){
+                    // Caso a variável venha vazia eu gero um dados de erro do mesmo
                     $dados = array(
                         "tipo" => 'error',
                         "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
@@ -61,29 +61,12 @@
                                 ':e' => $novoNome
                             ));
 
-                            // Início da busca dos último cadastro efetivado
-                            $sql = $pdo->query("SELECT * FROM CIDADAO ORDER BY ID DESC LIMIT 1");
-                
-                            while ($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
-                                $ID = $resultado['ID'];
-                            }
-
-                            $indice = count(array_filter($requestData['USUARIO_ID']));
-
-                            for($i=0; $i < $indice; $i++) {
-                                $stmt = $pdo->prepare('INSERT INTO AUTOR (TRABALHO_IDTRABALHO, USUARIO_IDUSUARIO) VALUES (:a, :b)');
-                                $stmt->execute(array(
-                                    ':a' => $ID,
-                                    ':b' => $requestData['USUARIO_IDUSUARIO'][$i]
-                                ));
-                            }
-
-                            $retorno = array(
+                            $dados = array(
                                 "tipo" => 'success',
                                 "mensagem" => 'Trabalho cadastrado com sucesso.'
                             );
                         } catch(PDOException $e) {
-                            $retorno = array(
+                            $dados = array(
                                 "tipo" => 'error',
                                 "mensagem" => 'Não foi possível efetuar o cadastro do trabalho.'
                             );
@@ -91,7 +74,7 @@
                     } else {
                         // Se minha variável operação estiver vazia então devo gerar os scripts de update
                         try{
-                            $stmt = $pdo->prepare('UPDATE TRABALHO SET NOME = :a, EMAIL = :b, SENHA = :c, RG = :d, ORIENTADOR = :e WHERE IDTRABALHO = :id');
+                            $stmt = $pdo->prepare('UPDATE CIDADAO SET NOME = :a, EMAIL = :b, SENHA = :c, RG = :d, FOTO = :e WHERE ID = :id');
                             $stmt->execute(array(
                                 ':id' => $ID,
                                 ':a' => utf8_decode($requestData['NOME']),
@@ -101,12 +84,12 @@
                                 ':e' => $novoNome
                             ));
 
-                            $retorno = array(
+                            $dados = array(
                                 "tipo" => 'success',
                                 "mensagem" => 'Trabalho atualizado com sucesso.'
                             );
                         } catch (PDOException $e) {
-                            $retorno = array(
+                            $dados = array(
                                 "tipo" => 'error',
                                 "mensagem" => 'Não foi possível efetuar o alteração do trabalho.'
                             );
@@ -114,16 +97,16 @@
                     }
                 }
 
-                // $retorno = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
+                // $dados = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }
             else
-                $retorno = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.');
+                $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.');
         }
         else
-            $retorno = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.PDF"');
+            $dados = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.PDF"');
     }
     else
-        $retorno = array ('mensagem' => 'Você não enviou nenhum arquivo!');
+        $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!');
 
 
-    echo json_encode($retorno);
+    echo json_encode($dados);

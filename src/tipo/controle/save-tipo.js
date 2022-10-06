@@ -16,7 +16,7 @@ $(document).ready(function() {
             url: 'src/tipo/modelo/save-tipo.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'e-rifa',
+                    title: 'SGQP',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

@@ -47,7 +47,7 @@ $(document).ready(function() {
                     $('#modal-reserva').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'e-Rifa', // Título da janela SweetAler
+                        title: 'SGQP', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // reserva de retorno [success, info ou error]
                         confirmButtonText: 'OK'

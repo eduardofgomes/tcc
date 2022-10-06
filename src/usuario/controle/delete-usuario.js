@@ -24,7 +24,7 @@ $(document).ready(function() {
                     url: 'src/usuario/modelo/delete-usuario.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'e-rifa',
+                            title: 'SGQP',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'

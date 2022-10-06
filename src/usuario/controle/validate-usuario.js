@@ -9,7 +9,7 @@
                 $(location).attr('href', 'index.html')
             } else {
                 Swal.fire({
-                    title: 'e-rifa',
+                    title: 'SGQP',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

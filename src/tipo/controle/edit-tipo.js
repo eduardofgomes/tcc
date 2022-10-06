@@ -28,7 +28,7 @@ $(document).ready(function() {
                     $('#modal-tipo').modal('show')
                 } else {
                     Swal.fire({
-                        title: 'e-rifa',
+                        title: 'SGQP',
                         text: dado.mensagem,
                         type: dado.tipo,
                         confirmButtonText: 'OK'

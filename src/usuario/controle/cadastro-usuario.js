@@ -17,7 +17,7 @@ $(document).ready(function() {
                     $(location).attr('href', 'cadastro.html')
                 } else {
                     Swal.fire({
-                        title: 'e-rifa',
+                        title: 'SGQP',
                         text: dados.mensagem,
                         icon: dados.tipo,
                         confirmButtonText: 'OK'

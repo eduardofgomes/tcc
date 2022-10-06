@@ -6,7 +6,7 @@
 
     $colunas = $requestData['columns'];
 
-    $sql = "SELECT ID_CIDADAO, NOME, EMAIL, FOTO, SENHA, RG FROM CIDADAO WHERE 1=1 ";
+    $sql = "SELECT ID, NOME, EMAIL, FOTO, SENHA, RG FROM CIDADAO WHERE 1=1 ";
 
     $resultado = $pdo->query($sql);
     $qtdeLinhas = $resultado->rowCount();
@@ -14,7 +14,7 @@
     $filtro = $requestData['search']['value'];
     if( !empty( $filtro ) ){
 
-        $sql .= " AND (ID_CIDADAO LIKE '$filtro%' ";
+        $sql .= " AND (ID LIKE '$filtro%' ";
         $sql .= " OR NOME LIKE '$filtro%' ";
         $sql .= " OR EMAIL LIKE '$filtro%') ";
     }

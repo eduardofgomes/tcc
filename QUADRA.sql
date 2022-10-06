@@ -9,7 +9,7 @@ CREATE TABLE `CIDADAO` (
   `SENHA` VARCHAR(30) NOT NULL,
   `RG` VARCHAR(9) NOT NULL,
   `USUARIO_ID` INT NOT NULL,
-  `TIPO_ID` NOT NULL,
+  `TIPO_ID`INT NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
@@ -52,28 +52,25 @@ CREATE  TABLE `TIPO` (
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
-/*
-INSERT INTO `TIPO_USUARIO` (`ID`, `NOME`) VALUES
-(1, 'Cidadão'),
-(2, 'ADM'),
-(3, 'Zelador');
-*/
+
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `USUARIO`
 --
 
-/*
+
 CREATE TABLE `USUARIO` (
   `LOGIN` varchar(45) NOT NULL,
   `SENHA` varchar(45) NOT NULL,
-  `ID` INT(11) NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `EMAIL` varchar(45) NOT NULL,
-  `TIPO_ID_USER` INT(1) NOT NULL
-) ENGINE=InnoDB;
-*/
+  `TIPO_ID` INT NOT NULL,
+  PRIMARY KEY (`ID`))
+   ENGINE = InnoDB;
 
+/*
 CREATE TABLE `USUARIO` (
   `LOGIN` VARCHAR(45) NOT NULL,
   `SENHA` VARCHAR(45) NOT NULL,
@@ -82,3 +79,4 @@ CREATE TABLE `USUARIO` (
   `TIPO_ID` INT NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
+*/

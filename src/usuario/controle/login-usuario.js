@@ -1,4 +1,4 @@
-/*$(document).ready(function() {
+$(document).ready(function() {
 
     $('.btn-login').click(function(e) {
 
@@ -17,7 +17,7 @@
                     $(location).attr('href', 'home.html')
                 } else {
                     Swal.fire({
-                        title: 'e-rifa',
+                        title: 'quadra',
                         text: dados.mensagem,
                         icon: dados.tipo,
                         confirmButtonText: 'OK'
@@ -27,4 +27,4 @@
         })
     })
 
-})*/
+})

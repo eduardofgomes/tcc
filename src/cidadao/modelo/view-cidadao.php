@@ -2,9 +2,9 @@
 
     include('../../conexao/conn.php');
 
-    $ID = $_REQUEST['id_cidadao'];
+    $ID = $_REQUEST['ID'];
 
-    $sql = "SELECT * FROM cidadao WHERE id_cidadao = $ID";
+    $sql = "SELECT * FROM CIDADAO WHERE ID = $ID";
 
     $resultado = $pdo->query($sql);
 

@@ -19,7 +19,7 @@ $(document).ready(function() {
             url: 'src/cidadao/modelo/view-cidadao.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/cidadao/visao/login.html', function() {
+                    $('.modal-body').load('src/cidadao/visao/form-cidadao.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#FOTO').val(dado.dados.FOTO)

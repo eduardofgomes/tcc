@@ -26,10 +26,10 @@ $(document).ready(function() {
                         $('#EMAIL').attr('readonly', 'true')
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#FOTO').attr('readonly', 'true')
-                        $('#SENHA').val(dado.dados.SENHA)
-                        $('#SENHA').attr('readonly', 'true')
                         $('#RG').val(dado.dados.RG)
                         $('#RG').attr('readonly', 'true')
+                        $('#SENHA').val(dado.dados.SENHA)
+                        $('#SENHA').attr('readonly', 'true')
                         $('#USUARIO_ID').empty()
 
                         var USUARIO_ID = dado.dados.USUARIO_ID

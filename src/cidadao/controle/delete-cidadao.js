@@ -20,10 +20,10 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/cidadao/model/delete-cidadao.php',
+                    url: 'src/cidadao/modelo/delete-cidadao.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'quadra',
+                            title: 'SGQP',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'

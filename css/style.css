@@ -63,3 +63,11 @@ a:hover {
     opacity: 1;
     right: 0;
   }
+
+  body {
+    overflow-Y: hidden;
+  }
+
+  div.carousel-caption{
+    
+  }

@@ -63,12 +63,12 @@
 
                             $dados = array(
                                 "tipo" => 'success',
-                                "mensagem" => 'Trabalho cadastrado com sucesso.'
+                                "mensagem" => 'Cidadão cadastrado com sucesso.'
                             );
                         } catch(PDOException $e) {
                             $dados = array(
                                 "tipo" => 'error',
-                                "mensagem" => 'Não foi possível efetuar o cadastro do trabalho.'
+                                "mensagem" => 'Não foi possível efetuar o cadastro do cidadão.'
                             );
                         }
                     } else {
@@ -81,7 +81,7 @@
                                 ':b' => $requestData['EMAIL'],
                                 ':c' => md5($requestData['SENHA']),
                                 ':d' => utf8_decode($requestData['RG']),
-                                ':e' => $novoNome
+                                ':e' => $requestData['ARQUIVO']
                             ));
 
                             $dados = array(
@@ -100,10 +100,10 @@
                 // $dados = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }
             else
-                $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.');
+                $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão para editar essa área.');
         }
         else
-            $dados = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.PDF"');
+            $dados = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.JPG, PNG ou JPEG"');
     }
     else
         $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!');

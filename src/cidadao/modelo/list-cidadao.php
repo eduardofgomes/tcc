@@ -6,7 +6,7 @@
 
     $colunas = $requestData['columns'];
 
-    $sql = "SELECT ID, NOME, EMAIL, FOTO, SENHA, RG FROM CIDADAO WHERE 1=1 ";
+    $sql = "SELECT ID, NOME FROM CIDADAO WHERE 1=1 ";
 
     $resultado = $pdo->query($sql);
     $qtdeLinhas = $resultado->rowCount();
@@ -16,7 +16,6 @@
 
         $sql .= " AND (ID LIKE '$filtro%' ";
         $sql .= " OR NOME LIKE '$filtro%' ";
-        $sql .= " OR EMAIL LIKE '$filtro%') ";
     }
     
     $resultado = $pdo->query($sql);
@@ -35,7 +34,7 @@
     $dados = array();
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
         //$dados[] = array_map('utf8_encode', $row);
-        $dados[] = array_map(null, $row);
+        $dados[] = array_map('utf8_encode', $row);
     }
 
     $json_data = array(

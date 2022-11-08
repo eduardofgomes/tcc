@@ -48,7 +48,7 @@
                     $ID = isset($requestData['ID']) ? $requestData['ID'] : '';
                     $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
-                    // Verifica se é para cadastra um nvo registro
+                    // Verifica se é para cadastrar um novo registro
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
@@ -68,29 +68,12 @@
                                 "mensagem" => 'Não foi possível efetuar o cadastro do cidadão.'
                             );
                         }
-                    } else {
-                        // Se minha variável operação estiver vazia então devo gerar os scripts de update
-                        try{
-                            $stmt = $pdo->prepare('UPDATE USUARIO SET EMAIL = :a, SENHA = :b WHERE ID = :id');
-                            $stmt->execute(array(
-                                ':id' => $ID,
-                                ':a' => $requestData['EMAIL'],
-                                ':b' => $requestData['SENHA']
-                                
-                            ));
 
-                            $dados = array(
-                                "tipo" => 'success',
-                                "mensagem" => 'Trabalho atualizado com sucesso.'
-                            );
-                        } catch (PDOException $e) {
-                            $dados = array(
-                                "tipo" => 'error',
-                                "mensagem" => 'Não foi possível efetuar o alteração do trabalho.'
-                            );
-                        }
-                    }
+                        
+                    } 
                 }
+
+
 
                 // $dados = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }

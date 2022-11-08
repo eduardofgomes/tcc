@@ -52,13 +52,10 @@
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
-                            $stmt = $pdo->prepare('INSERT INTO USUARIO (NOME, EMAIL, SENHA, RG, FOTO) VALUES (:a, :b, :c, :d, :e)');
+                            $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
                             $stmt->execute(array(
-                                ':a' => utf8_decode($requestData['NOME']),
-                                ':b' => $requestData['EMAIL'],
-                                ':c' => md5($requestData['SENHA']),
-                                ':d' => utf8_decode($requestData['RG']),
-                                ':e' => $novoNome
+                                ':a' => $requestData['EMAIL'],
+                                ':b' => md5($requestData['SENHA'])                              
                             ));
 
                             $dados = array(
@@ -74,14 +71,12 @@
                     } else {
                         // Se minha variável operação estiver vazia então devo gerar os scripts de update
                         try{
-                            $stmt = $pdo->prepare('UPDATE CIDADAO SET NOME = :a, EMAIL = :b, SENHA = :c, RG = :d, FOTO = :e WHERE ID = :id');
+                            $stmt = $pdo->prepare('UPDATE USUARIO SET EMAIL = :a, SENHA = :b WHERE ID = :id');
                             $stmt->execute(array(
                                 ':id' => $ID,
-                                ':a' => utf8_decode($requestData['NOME']),
-                                ':b' => $requestData['EMAIL'],
-                                ':c' => md5($requestData['SENHA']),
-                                ':d' => utf8_decode($requestData['RG']),
-                                ':e' => $requestData['ARQUIVO']
+                                ':a' => $requestData['EMAIL'],
+                                ':b' => $requestData['SENHA']
+                                
                             ));
 
                             $dados = array(

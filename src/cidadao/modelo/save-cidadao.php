@@ -69,7 +69,23 @@
                             );
                         }
 
-                        
+                        try{
+                            $stmt = $pdo->prepare(' INTO USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
+                            $stmt->execute(array(
+                                ':a' => $requestData['EMAIL'],
+                                ':b' => md5($requestData['SENHA'])                              
+                            ));
+
+                            $dados = array(
+                                "tipo" => 'success',
+                                "mensagem" => 'Cidadão cadastrado com sucesso.'
+                            );
+                        } catch(PDOException $e) {
+                            $dados = array(
+                                "tipo" => 'error',
+                                "mensagem" => 'Não foi possível efetuar o cadastro do cidadão.'
+                            );
+                        }
                     } 
                 }
 

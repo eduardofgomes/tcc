@@ -52,7 +52,7 @@
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
-                            $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, EMAIL, SENHA, RG, FOTO) VALUES (:a, :b, :c, :d, :e)');
+                            $stmt = $pdo->prepare('INSERT INTO USUARIO (NOME, EMAIL, SENHA, RG, FOTO) VALUES (:a, :b, :c, :d, :e)');
                             $stmt->execute(array(
                                 ':a' => utf8_decode($requestData['NOME']),
                                 ':b' => $requestData['EMAIL'],

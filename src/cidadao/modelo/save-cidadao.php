@@ -70,7 +70,7 @@
                         }
 
                         try{
-                            $stmt = $pdo->prepare(' INTO USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
+                            $stmt = $pdo->prepare('SELECT USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
                             $stmt->execute(array(
                                 ':a' => $requestData['EMAIL'],
                                 ':b' => md5($requestData['SENHA'])                              

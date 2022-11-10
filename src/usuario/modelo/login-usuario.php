@@ -13,6 +13,7 @@ while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
             'tipo' => 'success',
             'mensagem' => 'Você entrou'
         );
+        /* MACACO TROCAR TIPO_ID E LOGIN */
         
     } else {
         $dados = array(

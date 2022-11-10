@@ -1,5 +1,5 @@
     <?php
-/*
+
     session_start();
 
     if(!isset($_SESSION['LOGIN'])  && !isset($_SESSION['TIPO'])) {
@@ -15,4 +15,4 @@
     }
 
     echo json_encode($dados);
-    */
+    

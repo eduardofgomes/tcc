@@ -70,10 +70,12 @@
                         }
 
                         try{
-                            $stmt = $pdo->prepare('SELECT USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
+                            $stmt = $pdo->prepare('SELECT *FROM USUARIO ORDER BY id DESC LIMIT 1');
+                            $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, RG, FOTO) VALUES (:a, :b, :c)');
                             $stmt->execute(array(
-                                ':a' => $requestData['EMAIL'],
-                                ':b' => md5($requestData['SENHA'])                              
+                                ':a' => utf8_decode($requestData['NOME']),
+                                ':d' => utf8_decode($requestData['RG']),
+                                ':c' => $novoNome                              
                             ));
 
                             $dados = array(

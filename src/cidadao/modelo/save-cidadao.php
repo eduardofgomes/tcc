@@ -70,11 +70,11 @@
                         }
 
                         try{
-                            $stmt = $pdo->prepare('SELECT *FROM USUARIO ORDER BY id DESC LIMIT 1');
-                            $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, RG, FOTO) VALUES (:a, :b, :c)');
+                            $stmt = $pdo->prepare('SELECT *FROM USUARIO ORDER BY ID DESC LIMIT 1');
+                            $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, FOTO) VALUES (:a, :b, :c)');
                             $stmt->execute(array(
                                 ':a' => utf8_decode($requestData['NOME']),
-                                ':d' => utf8_decode($requestData['RG']),
+                                ':b' => utf8_decode($requestData['CPF']),
                                 ':c' => $novoNome                              
                             ));
 

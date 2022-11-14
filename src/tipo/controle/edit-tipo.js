@@ -7,7 +7,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Visualização de registros')
+        $('.modal-title').append('Edição de registros')
 
         let ID = `ID=${$(this).attr('id')}`
 

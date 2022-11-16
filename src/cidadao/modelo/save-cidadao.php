@@ -74,13 +74,7 @@
                             $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, FOTO) VALUES (:a, :b, :c)');
                             while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
                                 if($resultado['encontrou'] == 1) {
-                                    session_start();
-                                    $_SESSION['LOGIN'] = $resultado['LOGIN'];
-                                    $_SESSION['USUARIO_ID'] = $resultado['USUARIO_ID'];
-                                    $dados = array(
-                                        'tipo' => 'success',
-                                        'mensagem' => 'Você entrou'
-                                    );
+                                    
                                     
                                 } else {
                                     $dados = array(

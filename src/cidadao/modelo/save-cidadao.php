@@ -70,23 +70,25 @@
                         }
 
                         try{
-                            $stmt = $pdo->prepare('SELECT *FROM USUARIO ORDER BY ID DESC LIMIT 1');
+                            $stmt = $pdo->prepare('SELECT *, count(ID) as encontrou FROM USUARIO ORDER BY ID DESC LIMIT 1');
                             $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, FOTO) VALUES (:a, :b, :c)');
-                            $stmt->execute(array(
-                                ':a' => utf8_decode($requestData['NOME']),
-                                ':b' => utf8_decode($requestData['CPF']),
-                                ':c' => $novoNome                              
-                            ));
-
-                            $dados = array(
-                                "tipo" => 'success',
-                                "mensagem" => 'Cidadão cadastrado com sucesso.'
-                            );
-                        } catch(PDOException $e) {
-                            $dados = array(
-                                "tipo" => 'error',
-                                "mensagem" => 'Não foi possível efetuar o cadastro do cidadão.'
-                            );
+                            while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
+                                if($resultado['encontrou'] == 1) {
+                                    session_start();
+                                    $_SESSION['LOGIN'] = $resultado['LOGIN'];
+                                    $_SESSION['USUARIO_ID'] = $resultado['USUARIO_ID'];
+                                    $dados = array(
+                                        'tipo' => 'success',
+                                        'mensagem' => 'Você entrou'
+                                    );
+                                    
+                                } else {
+                                    $dados = array(
+                                        'tipo' => 'error',
+                                        'mensagem' => 'LOGIN e/ou SENHA incorretos'
+                                    );
+                                }
+                            }
                         }
                     } 
                 }

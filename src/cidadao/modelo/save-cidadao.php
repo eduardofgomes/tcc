@@ -73,9 +73,10 @@
                             $stmt = $pdo->prepare('SELECT *, count(ID) as encontrou FROM USUARIO ORDER BY ID DESC LIMIT 1');
                             while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
                                 if($resultado['encontrou'] == 1) {
-                                    $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, FOTO) VALUES (:a, :b, :c)');
+                                    $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, USUARIO_ID, FOTO) VALUES (:a, :b, :c, :d)');
                                         ':a' => $requestData['NOME'],
                                         ':b' => $requestData['CPF'],
+                                        ':c' => $requestData['USUARIO_ID'],
                                         ':c' => $novoNome
                                 } else {
                                     $dados = array(

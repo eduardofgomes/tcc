@@ -71,15 +71,16 @@
 
                         try{
                             $stmt = $pdo->prepare('SELECT *, count(ID) as encontrou FROM USUARIO ORDER BY ID DESC LIMIT 1');
-                            $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, FOTO) VALUES (:a, :b, :c)');
                             while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
                                 if($resultado['encontrou'] == 1) {
-                                    
-                                    
+                                    $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, FOTO) VALUES (:a, :b, :c)');
+                                        ':a' => $requestData['NOME'],
+                                        ':b' => $requestData['CPF'],
+                                        ':c' => $novoNome
                                 } else {
                                     $dados = array(
                                         'tipo' => 'error',
-                                        'mensagem' => 'LOGIN e/ou SENHA incorretos'
+                                        'mensagem' => 'Campos não preenchidos'
                                     );
                                 }
                             }

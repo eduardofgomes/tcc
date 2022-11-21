@@ -62,7 +62,7 @@
                             //$dados = array();
                             while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
                                     //$dados[] = array_map('utf8_encode', $row);
-                                $$USUARIO_ID = $row['ID'];
+                                $USUARIO_ID = $row['ID'];
                             }
 
                                     $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, USUARIO_ID, FOTO) VALUES (:a, :b, :c, :d)');

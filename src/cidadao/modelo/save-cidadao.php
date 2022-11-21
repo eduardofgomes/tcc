@@ -57,11 +57,27 @@
                                 ':a' => $requestData['EMAIL'],
                                 ':b' => md5($requestData['SENHA'])                              
                             ));
+                            $sql = 'SELECT ID FROM USUARIO ORDER BY ID DESC LIMIT 1';
+                            $resultado = $pdo->query($sql);
+                            //$dados = array();
+                            while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+                                    //$dados[] = array_map('utf8_encode', $row);
+                                $$USUARIO_ID = $row['ID'];
+                            }
+
+                                    $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, USUARIO_ID, FOTO) VALUES (:a, :b, :c, :d)');
+                                    $stmt->execute(array(
+                                        ':a' => $requestData['NOME'],
+                                        ':b' => $requestData['CPF'],
+                                        ':c' => $USUARIO_ID,
+                                        ':d' => $novoNome
+                                    ));
 
                             $dados = array(
                                 "tipo" => 'success',
                                 "mensagem" => 'Cidadão cadastrado com sucesso.'
                             );
+
                         } catch(PDOException $e) {
                             $dados = array(
                                 "tipo" => 'error',
@@ -69,28 +85,10 @@
                             );
                         }
 
-                        try{
-                            $stmt = $pdo->prepare('SELECT *, count(ID) as encontrou FROM USUARIO ORDER BY ID DESC LIMIT 1');
-                            while($resultado = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                if($resultado['encontrou'] == 1) {
-                                    $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, USUARIO_ID, FOTO) VALUES (:a, :b, :c, :d)');
-                                        ':a' => $requestData['NOME'],
-                                        ':b' => $requestData['CPF'],
-                                        ':c' => $requestData['USUARIO_ID'],
-                                        ':c' => $novoNome
-                                } else {
-                                    $dados = array(
-                                        'tipo' => 'error',
-                                        'mensagem' => 'Campos não preenchidos'
-                                    );
-                                }
-                            }
-                        }
                     } 
+
+
                 }
-
-
-
                 // $dados = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }
             else

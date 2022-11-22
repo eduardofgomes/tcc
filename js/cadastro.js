@@ -28,5 +28,4 @@ function formMask(mask, char, event, cursor) {
         cpf.setSelectionRange(cursor, cursor)
     }
 
-    //i used google translate, sorry :D
 }

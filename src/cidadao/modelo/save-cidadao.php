@@ -14,9 +14,7 @@
         // Converte a extensão para minúsculo
         $extensao = strtolower ( $extensao );
 
-        // Somente imagens, .jpg;.jpeg;.gif;.png
         // Aqui eu enfileiro as extensões permitidas e separo por ';'
-        // Isso serve apenas para eu poder pesquisar dentro desta String
         if ( strstr ( '.png;.jpg;.jpeg', $extensao ) ) {
             // Cria um nome único para esta imagem
             // Evita que duplique as imagens no servidor.
@@ -59,9 +57,7 @@
                             ));
                             $sql = 'SELECT ID FROM USUARIO ORDER BY ID DESC LIMIT 1';
                             $resultado = $pdo->query($sql);
-                            //$dados = array();
                             while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-                                    //$dados[] = array_map('utf8_encode', $row);
                                 $USUARIO_ID = $row['ID'];
                             }
 
@@ -89,7 +85,6 @@
 
 
                 }
-                // $dados = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }
             else
                 $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão para editar essa área.');

@@ -26,7 +26,6 @@ $(document).ready(function() {
                 })
 
                 $('#modal-cidadao').modal('hide')
-                //$('#table-cidadao').DataTable().ajax.reload()
             }
         })
     })

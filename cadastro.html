@@ -14,20 +14,34 @@
                 <div class="col-12 col-sm-6 col-md-6">
                     <div class="card shadow">
                         <img class="img-fluid" src="img/quadra.jpg" alt="quadra">
-                        <div class="card-body" id="card-cadastro">
+                        <div class="card-body">
                             <h4 class="card-title text-center">Cadastro do Sistema</h5>
                             <br>
                             <form id="form-cidadao" enctype="multipart/form-data">
-                                <div class="container justify-content-center mt-5">
-                                    <div class="form-group row">
-                                        <div class="col-12 col-sm-8 col-md-4 ml-6">
-                                            <button class="btn text-center">
-                                                Faça seu cadastro
-                                            </button>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Nome</label>
+                                    <input type="text" name="NOME" id="NOME" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="tel" name="EMAIL" id="EMAIL" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Documento com foto</label>
+                                    <input type="file" name="FOTO" id="FOTO" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>CPF</label>
+                                    <input type="text" name="CPF" id="CPF" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Senha</label>
+                                    <input type="password" name="SENHA" id="SENHA" class="form-control">
+                                </div>
+                                <input type="hidden" name="operacao" id="operacao" value="insert">
+                                <input type="hidden" name="ID" id="ID">
                             </form>
+                            <button class="btn btn-black text-white btn-save"> Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -38,7 +52,6 @@
         <script src="js/bootstrap.js"></script>
         <script src="libs/sweetAlert/dist/sweetalert2.all.js"></script>
         <script src="src/usuario/controle/login-usuario.js"></script>
-        <script src="src/cidadao/controle/new-cadastro.js"></script>
         <script src="src/cidadao/controle/save-cidadao.js"></script>
         <script src="src/cidadao/modelo/save-cidadao.php"></script>
 

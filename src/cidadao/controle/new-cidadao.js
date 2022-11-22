@@ -9,6 +9,7 @@ $(document).ready(function() {
 
         $('.modal-body').load('src/cidadao/visao/form-cidadao.html')
 
+        
       
 
         $('.btn-save').show()

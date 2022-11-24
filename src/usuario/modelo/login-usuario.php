@@ -2,12 +2,12 @@
 
 include('../../conexao/conn.php');
 
-$sql =$pdo->query("SELECT *, count(ID) as achou FROM USUARIO WHERE LOGIN  ='".$_REQUEST['LOGIN']."'AND SENHA ='".md5($_REQUEST['SENHA'])."'"); 
+$sql =$pdo->query("SELECT *, count(ID) as achou FROM USUARIO WHERE EMAIL  ='".$_REQUEST['EMAIL']."'AND SENHA ='".md5($_REQUEST['SENHA'])."'"); 
 
 while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
     if($resultado['achou'] == 1) {
         session_start();
-        $_SESSION['LOGIN'] = $resultado['LOGIN'];
+        $_SESSION['EMAIL'] = $resultado['EMAIL'];
         $_SESSION['USUARIO_ID'] = $resultado['USUARIO_ID'];
         $dados = array(
             'tipo' => 'success',
@@ -17,7 +17,7 @@ while($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
     } else {
         $dados = array(
             'tipo' => 'error',
-            'mensagem' => 'LOGIN e/ou SENHA incorretos'
+            'mensagem' => 'EMAIL e/ou SENHA incorretos'
         );
     }
 }

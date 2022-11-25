@@ -50,7 +50,7 @@
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
-                            $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, SENHA, TIPO_ID) VALUES (:a, :b, :c)');
+                            $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
                             $stmt->execute(array(
                                 ':a' => $requestData['EMAIL'],
                                 ':b' => md5($requestData['SENHA'])                              

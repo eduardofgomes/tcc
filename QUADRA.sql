@@ -39,14 +39,11 @@ CREATE  TABLE `TIPO` (
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
-
-
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `USUARIO`
 --
-
 
 CREATE TABLE `USUARIO` (
   `SENHA` varchar(45) NOT NULL,
@@ -77,5 +74,3 @@ INSERT INTO TIPO (ID, NOME) VALUES (3, "Zelador");
 
 -- --------------------------------------------------------
 
--- Dados da tabela `QUADRA`
-INSERT INTO QUADRA (ID, NUMERO, NOME, BAIRRO, LOGRADOURO, ) VALUES (1, )

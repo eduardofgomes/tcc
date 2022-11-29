@@ -50,17 +50,18 @@
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
-                            $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, SENHA) VALUES (:a, :b)');
+                            $TIPO_CIDADAO = '2';
+                            $stmt = $pdo->prepare('INSERT INTO USUARIO (EMAIL, SENHA, TIPO_ID) VALUES (:a, :b, :c)');
                             $stmt->execute(array(
                                 ':a' => $requestData['EMAIL'],
-                                ':b' => md5($requestData['SENHA'])                              
+                                ':b' => md5($requestData['SENHA']),
+                                ':c' => $TIPO_CIDADAO                              
                             ));
                             $sql = 'SELECT ID FROM USUARIO ORDER BY ID DESC LIMIT 1';
                             $resultado = $pdo->query($sql);
                             while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
                                 $USUARIO_ID = $row['ID'];
                             }
-
                                     $stmt = $pdo->prepare('INSERT INTO CIDADAO (NOME, CPF, USUARIO_ID, FOTO) VALUES (:a, :b, :c, :d)');
                                     $stmt->execute(array(
                                         ':a' => $requestData['NOME'],

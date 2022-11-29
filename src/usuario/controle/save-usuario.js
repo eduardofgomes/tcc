@@ -13,14 +13,29 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/usuario/modelo/save-usuario.php',
+            url: 'src/usuario/modelo/save-cidade.php',
             success: function(dados) {
-                Swal.fire({
-                    title: 'quadra',
-                    text: dados.mensagem,
-                    icon: dados.tipo,
-                    confirmButtonText: 'OK'
-                })
+                // Swal.fire({
+                //     title: 'quadra',
+                //     text: dados.mensagem,
+                //     icon: dados.tipo,
+                //     confirmButtonText: 'OK'
+                // })
+                if(dados.tipo == 'success') {
+                    $(location).attr('href', 'home.html')
+                } else {
+                    Swal.fire({
+                        title: 'quadra',
+                        text: dados.mensagem,
+                        icon: dados.tipo,
+                        confirmButtonText: 'OK'
+                    })
+                }
+            
+        
+    
+
+
 
                 $('#modal-usuario').modal('hide')
                 $('#table-usuario').DataTable().ajax.reload()

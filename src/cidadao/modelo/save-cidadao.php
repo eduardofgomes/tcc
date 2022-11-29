@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
      // Upload de imagens
 
     // verifica se foi enviado um arquivo
@@ -74,6 +76,9 @@
                                 "tipo" => 'success',
                                 "mensagem" => 'Cidadão cadastrado com sucesso.'
                             );
+
+                            $_SESSION['EMAIL'] = $requestData['EMAIL'];
+                            $_SESSION['SENHA'] = md5($requestData['SENHA']);
 
                         } catch(PDOException $e) {
                             $dados = array(

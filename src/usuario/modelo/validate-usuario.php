@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(!isset($_SESSION['EMAIL'])  && !isset($_SESSION['ID'])) {
+    if(!isset($_SESSION['EMAIL'])  && !isset($_SESSION['SENHA'])) {
         $dados = array(
             'tipo' => 'error',
             'mensagem' => 'Você não está cadastrado'

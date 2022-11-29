@@ -67,6 +67,15 @@ CREATE TABLE `CIDADAO` (
   )
 ENGINE = InnoDB;
 
+-- --------------------------------------------------------
+
+-- Dados da tabela `TIPO`
+
 INSERT INTO TIPO (ID, NOME) VALUES (1, "ADM");
 INSERT INTO TIPO (ID, NOME) VALUES (2, "Cidadão");
 INSERT INTO TIPO (ID, NOME) VALUES (3, "Zelador");
+
+-- --------------------------------------------------------
+
+-- Dados da tabela `QUADRA`
+INSERT INTO QUADRA (ID, NUMERO, NOME, BAIRRO, LOGRADOURO, ) VALUES (1, )

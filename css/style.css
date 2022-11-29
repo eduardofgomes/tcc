@@ -29,3 +29,8 @@ a:hover {
     overflow: hidden;
 }
 
+.card-local{
+    margin-right: 25rem;
+    margin-left: 25rem;
+    width: calc(50% - 1rem);
+}

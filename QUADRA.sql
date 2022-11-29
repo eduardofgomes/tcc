@@ -1,8 +1,3 @@
--- --------------------------------------------------------
---
--- Estrutura da tabela `QUADRAS`
---
-
 CREATE  TABLE `QUADRAS` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `NUMERO` INT(6) NOT NULL,
@@ -20,7 +15,7 @@ ENGINE = InnoDB;
 
 CREATE  TABLE `RESERVAS` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `DATA` DATE(10) NOT NULL,
+  `DATA` DATE NOT NULL,
   `USUARIO_ID` INT NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;

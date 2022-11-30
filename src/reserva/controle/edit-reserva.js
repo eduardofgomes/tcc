@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-reserva').on('click', 'button.btn-edit', function(e) {
+    $('#table-reservas').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault();
 

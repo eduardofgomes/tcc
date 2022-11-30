@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#table-cidadao').DataTable({
+    $('#table-reservas').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/cidadao/modelo/list-cidadao.php",
+            "url": "src/reserva/modelo/list-reserva.php",
             "type": "POST"
         },
         "language": {

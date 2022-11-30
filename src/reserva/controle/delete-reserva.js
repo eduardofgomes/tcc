@@ -7,7 +7,7 @@ $(document).ready(function() {
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'quadra',
+            title: 'SGQP',
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
@@ -21,10 +21,10 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/reserva/model/delete-reserva.php',
+                    url: 'src/reserva/modelo/delete-reserva.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'quadra',
+                            title: 'SGQP',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'

@@ -34,6 +34,14 @@ a:hover {
     margin-left: 30rem;
 }
 
+.icon-social {
+    font-size: 2.5rem !important;
+}
+
+input[type="file"] {
+    display: none !important;
+}
+
 @media (max-width: 575.98px) {
 
 .carousel-caption>p {
@@ -53,7 +61,9 @@ a:hover {
 
 /* Dispositivos médios - md (tablets com menos de 992px) */
 @media (max-width: 991.98px) {
-
+    .card-responsivo {
+        width: 50rem !important;
+    }
 }
 
 /* Dispositivos large - lg (desktops com menos de 1200px) */

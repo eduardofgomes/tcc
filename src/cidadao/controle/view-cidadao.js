@@ -26,13 +26,11 @@ $(document).ready(function() {
                         $('#EMAIL').attr('readonly', 'true')
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#FOTO').attr('readonly', 'true')
-                        $('#RG').val(dado.dados.RG)
-                        $('#RG').attr('readonly', 'true')
+                        $('#CPF').val(dado.dados.CPF)
+                        $('#CPF').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         $('#USUARIO_ID').empty()
-
-                        var USUARIO_ID = dado.dados.USUARIO_ID
 
                         //Consultar todos os tipos cadastrados no banco de daods
                         $.ajax({
@@ -41,12 +39,7 @@ $(document).ready(function() {
                             assync: true,
                             url: 'src/tipo/modelo/all-tipo.php',
                             success: function(dados) {
-                                for (const result of dados) {
-                                    if (result.ID == USUARIO_ID) {
-                                        $('#USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
-                                    }
-
-                                }
+                                
                             }
                         })
 

@@ -39,11 +39,10 @@ a:hover {
 }
 
 .input-foto {
-    display: none;
+    display: none !important;
 }
 
 .label-foto {
-    width: 25   rem;
     height: 20rem;
     display: flex;
     align-items: center;

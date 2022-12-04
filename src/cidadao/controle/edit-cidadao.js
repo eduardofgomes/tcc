@@ -25,7 +25,6 @@ $(document).ready(function() {
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#RG').val(dado.dados.RG)
-                        $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()

@@ -5,6 +5,7 @@
     $ID = $_REQUEST['ID'];
 
     $sql = "SELECT * FROM CIDADAO WHERE ID = $ID";
+    $dados_usuario = "SELECT * FROM USUARIO"
 
     $resultado = $pdo->query($sql);
 

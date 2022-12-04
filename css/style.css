@@ -43,8 +43,8 @@ a:hover {
 }
 
 .label-foto {
-    width: 400px;
-    background: black;
+    width: 25   rem;
+    height: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +54,8 @@ a:hover {
     font-family: sans-serif;
     transition: color 300ms ease-in-out ease-in-out;
     outline: none;
-    overflow: hidden;
+    overflow: hidde1;
+    border-radius: 1rem;
 }
 
 .label-foto:hover {

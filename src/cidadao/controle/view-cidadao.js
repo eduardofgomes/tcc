@@ -31,19 +31,6 @@ $(document).ready(function() {
                         $('#CPF').val(dado.dados.CPF)
                         $('#CPF').attr('readonly', 'true')
 
-                        //Consultar todos os tipos cadastrados no banco de dados
-                        /*
-                        $.ajax({
-                            dataType: 'json',
-                            type: 'POST',
-                            assync: true,
-                            url: 'src/tipo/modelo/all-tipo.php',
-                            success: function(dados) {
-                                
-                            }
-                        })
-                        */
-
                     })
                     $('.btn-save').hide()
                     $('#modal-cidadao').modal('show')

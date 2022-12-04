@@ -53,19 +53,13 @@ a:hover {
     font-family: sans-serif;
     transition: color 300ms ease-in-out ease-in-out;
     outline: none;
-    overflow: hidde1;
+    overflow: hidden;
     border-radius: 1rem;
 }
 
 .label-foto:hover {
-    color: #777;
-    background: #ccc;
-}
-
-.label-foto:focus {
-    color: #777;
-    background: #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ccc;
+    background: #f1f2f6;
 }
 
 .mostrar-imagem {

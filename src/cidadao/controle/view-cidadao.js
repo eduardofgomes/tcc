@@ -22,7 +22,7 @@ $(document).ready(function() {
                     $('.modal-body').load('src/cidadao/visao/form-cidadao.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
-                        $('#EMAIL').val(dado.dados22.EMAIL)
+                        $('#EMAIL').val(dado.dados2.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados2.SENHA)
                         $('#SENHA').attr('readonly', 'true')

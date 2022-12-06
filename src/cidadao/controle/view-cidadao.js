@@ -22,14 +22,14 @@ $(document).ready(function() {
                     $('.modal-body').load('src/cidadao/visao/form-cidadao.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
-                        console.log(dado.dados.EMAIL)
+                        console.log(dado.dados.CPF)
                         *$('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#FOTO').attr('readonly', 'true')
-                        $('#CPF').val(dado.dados.CPF)
+                        $('#mostrar-imagem').val(dado.dados.CPF)
                         $('#CPF').attr('readonly', 'true')
                     })
                     

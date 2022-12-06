@@ -24,7 +24,7 @@ $(document).ready(function() {
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#SENHA').val(dado.dados.SENHA)
-                        $('#RG').val(dado.dados.RG)
+                        $('#RG').val(dado.dados.CPF)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()

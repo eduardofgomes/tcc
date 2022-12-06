@@ -30,7 +30,6 @@ $(document).ready(function() {
                         $('#FOTO').attr('readonly', 'true')
                         $('#CPF').val(dado.dados.CPF)
                         $('#CPF').attr('readonly', 'true')
-
                     })
                     $('.btn-save').hide()
                     $('#modal-cidadao').modal('show')

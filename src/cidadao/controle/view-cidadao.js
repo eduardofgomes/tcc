@@ -4,8 +4,12 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        $('#link-foto').attr('src', 'src/cidadao/controle/foto.js')
-        $('#link-cpf').attr('src', 'src/cidadao/controle/mascara-cpf.js')
+        import {cpf, formMask,} from 'mascara-cpf.js';
+
+        
+
+        /*$(body).append(`<script src="src/cidadao/controle/foto.js"></script>
+        <script src="src/cidadao/controle/mascara-cpf.js"></script>`)*/
 
         $('.modal-title').empty()
         $('.modal-body').empty()

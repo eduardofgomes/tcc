@@ -1,39 +1,4 @@
 <?php
-
-
-     // Upload de imagens
-     if ( isset( $_FILES[ 'FOTO' ][ 'name' ] ) && $_FILES[ 'FOTO' ][ 'error' ] == 0 ) {
-
-        $arquivo_tmp = $_FILES[ 'FOTO' ][ 'tmp_name' ];
-        $nome = $_FILES[ 'FOTO' ][ 'name' ];
-        
-        // Pega a extensão
-        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
-
-        // Converte a extensão para minúsculo
-        $extensao = strtolower ( $extensao );
-
-        // Aqui eu enfileiro as extensões permitidas e separo por ';'
-        if ( strstr ( '.png;.jpg;.jpeg', $extensao ) ) {
-            // Cria um nome único para esta imagem
-            // Evita que duplique as imagens no servidor.
-            // Evita nomes com acentos, espaços e caracteres não alfanuméricos
-            $novoNome = uniqid ( time () ) . '.' . $extensao;
-
-            // Concatena a pasta com o nome
-            $destino = 'arquivos/' . $novoNome;
-
-            // tenta mover o arquivo para o destino
-            if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-                
-                // Scripts de persistência no banco de dados .....
-                // Obter a nossa conexão com o banco de dados
-                include('../../conexao/conn.php');
-
-                // Obter os dados enviados do formulário via $_REQUEST
-                $requestData = $_REQUEST;
-
-                // Verificação de campo obrigatórios do formulário
                 if(empty($requestData['NOME'])){
                     // Caso a variável venha vazia eu gero um dados de erro do mesmo
                     $dados = array(
@@ -82,14 +47,12 @@
                         }
 
                     } 
-
-
+        
+                } else {
+                    $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão para editar essa área.');
                 }
-            }
-        }
-    }
-    else
-        $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!');
+    
+        
 
 
     echo json_encode($dados);

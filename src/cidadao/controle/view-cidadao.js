@@ -4,6 +4,9 @@ $(document).ready(function() {
 
         e.preventDefault();
 
+        $('#link-foto').attr('src', 'src/cidadao/controle/foto.js')
+        $('#link-cpf').attr('src', 'src/cidadao/controle/mascara-cpf.js')
+
         $('.modal-title').empty()
         $('.modal-body').empty()
 
@@ -23,13 +26,13 @@ $(document).ready(function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
                         console.log(dado.dados.CPF)
-                        *$('#EMAIL').val(dado.dados.EMAIL)
+                        $('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#FOTO').attr('readonly', 'true')
-                        $('#mostrar-imagem').val(dado.dados.CPF)
+                        $('#CPF').val(dado.dados.CPF)
                         $('#CPF').attr('readonly', 'true')
                     })
                     

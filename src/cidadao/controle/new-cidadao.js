@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         $('.modal-body').load('src/cidadao/visao/form-cidadao.html')
 
-        $('#CPF').mask("000.000.000.00")
+        $(mascara('#CPF'))
 
         $('.btn-save').show()
         $('.btn-save').attr('data-operation', 'insert')

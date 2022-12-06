@@ -4,10 +4,6 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        import {cpf, formMask,} from 'mascara-cpf.js';
-
-        cpf("#CPF")
-
         /*$(body).append(`<script src="src/cidadao/controle/foto.js"></script>
         <script src="src/cidadao/controle/mascara-cpf.js"></script>`)*/
 
@@ -29,15 +25,15 @@ $(document).ready(function() {
                     $('.modal-body').load('src/cidadao/visao/form-cidadao.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
-                        console.log(dado.dados.CPF)
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
-                        $('#FOTO').val(dado.dados.FOTO)
-                        $('#FOTO').attr('readonly', 'true')
                         $('#CPF').val(dado.dados.CPF)
                         $('#CPF').attr('readonly', 'true')
+                        $('#FOTO').val(dado.dados.FOTO)
+                        $('#FOTO').attr('readonly', 'true')
+                        
                     })
                     
                     $('.btn-save').hide()

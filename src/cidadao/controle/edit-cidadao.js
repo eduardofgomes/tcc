@@ -22,9 +22,9 @@ $(document).ready(function() {
                     $('.modal-body').load('src/cidadao/visao/form-cidadao.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#EMAIL').val(dado.dados.EMAIL)
-                        $('#FOTO').val(dado.dados.FOTO)
                         $('#SENHA').val(dado.dados.SENHA)
-                        $('#RG').val(dado.dados.CPF)
+                        $('#CPF').val(dado.dados.CPF)
+                        $('#FOTO').val(dado.dados.FOTO)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()

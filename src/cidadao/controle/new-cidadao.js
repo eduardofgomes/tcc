@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('.btn-new').click(function(e) {
         e.preventDefault()
 
+
         $('.modal-title').empty()
         $('.modal-body').empty()
 

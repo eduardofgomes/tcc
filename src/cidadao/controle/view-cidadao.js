@@ -33,7 +33,6 @@ $(document).ready(function() {
                         $('#CPF').attr('readonly', 'true')
                         $('#FOTO').val(dado.dados.FOTO)
                         $('#FOTO').attr('readonly', 'true')
-                        
                     })
                     
                     $('.btn-save').hide()

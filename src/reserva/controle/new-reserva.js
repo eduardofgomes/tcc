@@ -5,7 +5,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo reserva')
+        $('.modal-title').append('Adicionar nova reserva')
 
         $('.modal-body').load('src/reserva/visao/form-reserva.html', function() {
             $.ajax({
@@ -15,7 +15,7 @@ $(document).ready(function() {
                 url: 'src/tipo/modelo/all-tipo.php',
                 success: function(dados) {
                     for (const result of dados) {
-                        $('#tipo_id').append(`<option value="${result.ID}">${result.NOME}</option>`)
+                        $('#tipo_id').append(`<option value="${result.ID}">${result.DATA}</option>`)
                     }
                 }
             })

@@ -2,7 +2,11 @@
 
 
      // Upload de imagens
+     if ( isset( $_FILES[ 'FOTO' ][ 'name' ] ) && $_FILES[ 'FOTO' ][ 'error' ] == 0 ) {
 
+        $arquivo_tmp = $_FILES[ 'FOTO' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'FOTO' ][ 'name' ];
+        
         // Pega a extensão
         $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
 
@@ -46,41 +50,34 @@
                         // Prepara o comando INSERT para ser executado
                         try{
                             $TIPO_CIDADAO = '2';
-                            $stmt = $pdo->prepare('INSERT INTO QUADRA (EMAIL, SENHA, TIPO_ID) VALUES (:a, :b, :c)');
+                            $stmt = $pdo->prepare('INSERT INTO QUADRA (NOME, NUMERO, BAIRRO, LOGRADOURO) VALUES (:a, :b, :c, :d, :e)');
                             $stmt->execute(array(
                                 ':a' => $requestData['NOME'],
                                 ':b' => $requestData['NUMERO'],
                                 ':c' => $requestData['BAIRRO'],
-                                ':d' => $requestData['LOGRADOURO'],
-                                ':e' => $USUARIO_ID,
-                                ':f' => $novoNome                             
+                                ':d' => $requestData['LOGRADOURO']                       
                             ));
-                            $sql = 'SELECT ID FROM USUARIO ORDER BY ID DESC LIMIT 1';
-                            $resultado = $pdo->query($sql);
-                            while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-                                $USUARIO_ID = $row['ID'];
-                            }
-                                    $stmt = $pdo->prepare('INSERT INTO QUADRA (NOME, CPF, USUARIO_ID, FOTO) VALUES (:a, :b, :c, :d)');
+                          
+                            
+                                    $stmt = $pdo->prepare('INSERT INTO QUADRA (NOME, NUMERO, BAIRRO, LOGRADOURO) VALUES (:a, :b, :c, :d)');
                                     $stmt->execute(array(
                                         ':a' => $requestData['NOME'],
                                         ':b' => $requestData['NUMERO'],
                                         ':c' => $requestData['BAIRRO'],
-                                        ':d' => $requestData['LOGRADOURO'],
-                                        ':e' => $USUARIO_ID,
-                                        ':f' => $novoNome
+                                        ':d' => $requestData['LOGRADOURO']
                                     ));
 
                             $dados = array(
                                 "tipo" => 'success',
-                                "mensagem" => 'Cidadão cadastrado com sucesso.'
+                                "mensagem" => 'Quadra cadastrado com sucesso.'
                             );
 
                    
-
+                            
                         } catch(PDOException $e) {
                             $dados = array(
                                 "tipo" => 'error',
-                                "mensagem" => 'Não foi possível efetuar o cadastro do cidadão.'
+                                "mensagem" => 'Não foi possível criar a quadra.'
                             );
                         }
 
@@ -89,11 +86,7 @@
 
                 }
             }
-            else
-                $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão para editar essa área.');
         }
-        else
-            $dados = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.JPG, PNG ou JPEG"');
     }
     else
         $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!');

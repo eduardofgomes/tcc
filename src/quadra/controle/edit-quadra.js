@@ -21,10 +21,9 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/quadra/visao/form-quadra.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#EMAIL').val(dado.dados.EMAIL)
-                        $('#FOTO').val(dado.dados.FOTO)
-                        $('#SENHA').val(dado.dados.SENHA)
-                        $('#RG').val(dado.dados.RG)
+                        $('#NUMERO').val(dado.dados.NUMERO)
+                        $('#BAIRRO').val(dado.dados.BAIRRO)
+                        $('#LOGRADOURO').val(dado.dados.LOGRADOURO)
                         $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')

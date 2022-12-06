@@ -6,7 +6,7 @@
 
     $colunas = $requestData['columns'];
 
-    $sql = "SELECT ID, NOME FROM QUADRA WHERE 1=1 ";
+    $sql = "SELECT NOME FROM QUADRA WHERE 1=1 ";
 
     $resultado = $pdo->query($sql);
     $qtdeLinhas = $resultado->rowCount();
@@ -14,7 +14,7 @@
     $filtro = $requestData['search']['value'];
     if( !empty( $filtro ) ){
 
-        $sql .= " AND (ID LIKE '$filtro%' ";
+        
         $sql .= " OR NOME LIKE '$filtro%' ";
     }
     

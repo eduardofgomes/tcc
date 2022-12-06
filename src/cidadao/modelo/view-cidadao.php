@@ -4,7 +4,7 @@
 
     $ID = $_REQUEST['ID'];
 
-    $sql = "SELECT * FROM CIDADAO WHERE ID = $ID";
+    $sql = "SELECT * FROM CIDADAO a, USUARIO b WHERE a.USUARIO_ID = b.ID and b.ID = $ID";
 
     $resultado = $pdo->query($sql);
 

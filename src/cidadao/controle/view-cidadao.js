@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         import {cpf, formMask,} from 'mascara-cpf.js';
 
-        
+        cpf("#CPF")
 
         /*$(body).append(`<script src="src/cidadao/controle/foto.js"></script>
         <script src="src/cidadao/controle/mascara-cpf.js"></script>`)*/

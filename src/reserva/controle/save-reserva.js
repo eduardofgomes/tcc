@@ -13,7 +13,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/reserva/model/save-reserva.php',
+            url: 'src/reserva/modelo/save-reserva.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'SGQP',

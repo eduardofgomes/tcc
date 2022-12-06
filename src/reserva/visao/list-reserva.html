@@ -1,153 +1,62 @@
-<br><br><br>
-<div class="card mb-3 mt-3 w-50 card-local">
-    <img class="card-img-top" src="img/beira-rio.jpg" alt="Imagem de capa do card">
-    <div class="card-body">
-      <h5 class="card-title">Beira Rio</h5>
-      <a class="card-text text-dark" href="https://www.google.com/maps/place/Av.+S%C3%ADlvio+Gasparini+-+Promiss%C3%A3o,+SP/@-21.5258994,-49.870558,17z/data=!3m1!4b1!4m5!3m4!1s0x94be05927028ecad:0x240af8010a9c41c5!8m2!3d-21.5258994!4d-49.870558"> Av. Sílvio Gasparini, s/n - Promissão, SP</a>
-     <br><br>       
-      <a class="btn text-white" style="background-color: #1e272e" role="button" data-toggle="modal" data-target="#ModalBeira">Reservar</a>
-    </div>
-</div>
-
-<div class="modal fade" id="ModalBeira" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Reservar Quadra - Beira Rio</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="InputData">Data</label>
-            <input type="date" class="form-control" id="data">
+<div class="row mt-5">
+  <div class="col-12 mt-5">
+      <div class="card shadow mt-5">
+          <div class="card-header ">
+              <div class="card-title">
+                  <div class="row">
+                      <div class="col-12 col-md-10">
+                          <h4 class="text-dark">
+                              Gerenciar Quadaras
+                          </h4>
+                      </div>
+                      <div class="col-12 col-md-2">
+                          <button class="btn btn-danger btn-block btn-new">
+                              <i class="fa-solid fa-circle-plus"></i> Adicionar
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <div class="table-responsive">
+                      <table class="table table-hover" id="table-reserva">
+                          <thead class="thead">
+                              <tr>
+                                  <th scope="col" class="text-center">ID</th>
+                                  <th scope="col" class="text-center">NOME</th>
+                                  <th scope="col" class="text-center">AÇÕES</th>
+                              </tr>
+                          </thead>
+                      </table>
+                  </div>
+              </div>
           </div>
-          <div class="form-group">
-            <select class="form-control">
-              <option>Selecione um horário</option>
-              <option>Das 08:00 às 10:00</option>
-              <option>Das 10:00 às 12:00</option>
-              <option>Das 14:00 às 16:00</option>
-              <option>Das 16:00 às 18:00</option>
-              <option>Das 18:00 às 20:00</option>
-              <option>Das 20:00 às 22:00</option>
-            </select>
-          </div>
-          <div class="form-group form-check">
-          </div>
-        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <a class="btn text-white" style="background-color: #158a11" role="button">Reservar</a>
-      </div>
-    </div>
   </div>
 </div>
 
-
-<div class="card mb-3 mt-3 w-50 card-local">
-    <img class="card-img-top" src="img/decar.jpeg" alt="Imagem de capa do card">
-    <div class="card-body">
-      <h5 class="card-title">Maria Schmidt</h5>
-      <a class="card-text text-dark" href="https://www.google.com/maps/place/R.+%C3%89rico+de+Abreu+Sodr%C3%A9,+459+-+Promiss%C3%A3o,+SP,+16370-000/data=!4m2!3m1!1s0x94be058400ee498f:0x361e84563f68e802?sa=X&ved=2ahUKEwi2_YClxtP7AhUCr5UCHWjdBJsQ8gF6BAgTEAE">R. Érico de Abreu Sodré, 459 - Promissão, SP</a>
-      <br><br>
-      <a class="btn text-white" style="background-color: #1e272e" role="button" data-toggle="modal" data-target="#ModalDecar">Reservar</a>
-    </div>
-</div>
-
-<div class="modal fade" id="ModalDecar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Reservar Quadra - Maria Schmidt</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="InputData">Data</label>
-            <input type="date" class="form-control" id="data">
+<div id="modal-reserva" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="my-modal-title">Title</h5>
+              <button class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
           </div>
-          <div class="form-group">
-            <select class="form-control">
-              <option>Selecione um horário</option>
-              <option>Das 08:00 às 10:00</option>
-              <option>Das 10:00 às 12:00</option>
-              <option>Das 14:00 às 16:00</option>
-              <option>Das 16:00 às 18:00</option>
-              <option>Das 18:00 às 20:00</option>
-              <option>Das 20:00 às 22:00</option>
-            </select>
+          <div class="modal-body">
+              <p>Content</p>
           </div>
-          <div class="form-group form-check">
+          <div class="modal-footer">
+              <button id="close" class="btn btn-secondary"><i class='bx bxs-x-circle'></i> Fechar</button>
+              <button class="btn btn-success btn-primary btn-save"><i class='bx bxs-save' ></i> Salvar</button>
           </div>
-        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <a class="btn text-white" style="background-color: #158a11" role="button">Reservar</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card mb-3 mt-3 w-50 card-local">
-    <img class="card-img-top" src="img/gremio.jpeg" alt="Imagem de capa do card">
-    <div class="card-body">
-      <h5 class="card-title">Grêmio</h5>
-      <a class="card-text text-dark" href="https://www.google.com/maps/place/Av.+Silvano+Faria,+494+-+Promiss%C3%A3o,+SP,+16370-000/@-21.5384931,-49.8559503,19.75z/data=!4m5!3m4!1s0x94be0587415b4855:0xcbfd7d5177edec14!8m2!3d-21.5383136!4d-49.8556958"> Av. Silvano Faria, 494 - Promissão, SP</a>
-      <br><br>
-      <a class="btn text-white" style="background-color: #1e272e" role="button" data-toggle="modal" data-target="#ModalGremio">Reservar</a>
-    </div>
-</div>
-
-<div class="modal fade" id="ModalGremio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Reservar Quadra - Grêmio</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="InputData">Data</label>
-            <input type="date" class="form-control" id="data">
-          </div>
-          <div class="form-group">
-            <select class="form-control">
-              <option>Selecione um horário</option>
-              <option>Das 08:00 às 10:00</option>
-              <option>Das 10:00 às 12:00</option>
-              <option>Das 14:00 às 16:00</option>
-              <option>Das 16:00 às 18:00</option>
-              <option>Das 18:00 às 20:00</option>
-              <option>Das 20:00 às 22:00</option>
-            </select>
-          </div>
-          <div class="form-group form-check">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <a class="btn text-white" style="background-color: #158a11" role="button">Reservar</a>
-      </div>
-    </div>
   </div>
 </div>
 
 <script src="src/reserva/controle/new-reserva.js"></script>
 <script src="src/reserva/controle/save-reserva.js"></script>
+<script src="src/reserva/controle/list-reserva.js"></script>
 <script src="src/reserva/controle/view-reserva.js"></script>
-<script src="src/reserva/controle/delete-reserva.js"></script>
 <script src="src/reserva/controle/edit-reserva.js"></script>
-<script src="src/reserva/controle/login-reserva.js"></script>
+<script src="src/reserva/controle/delete-reserva.js"></script>

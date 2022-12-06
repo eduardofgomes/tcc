@@ -1,13 +1,3 @@
-CREATE  TABLE `QUADRAS` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `NUMERO` INT(6) NOT NULL,
-  `NOME` VARCHAR(45) NOT NULL,
-  `BAIRRO` VARCHAR(45) NOT NULL,
-  `LOGRADOURO` VARCHAR(45) NOT NULL,
-  `RESERVAS_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB;
-
 -- --------------------------------------------------------
 --
 -- Estrutura da tabela `RESERVAS`
@@ -19,6 +9,21 @@ CREATE  TABLE `RESERVAS` (
   `USUARIO_ID` INT NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
+
+-- --------------------------------------------------------
+
+CREATE  TABLE `QUADRAS` (
+  `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `NUMERO` INT(6) NOT NULL,
+  `NOME` VARCHAR(45) NOT NULL,
+  `BAIRRO` VARCHAR(45) NOT NULL,
+  `LOGRADOURO` VARCHAR(45) NOT NULL,
+  `RESERVAS_ID` INT NOT NULL,
+  CONSTRAINT fk_reserva_quad FOREIGN KEY(`RESERVAS_ID`) REFERENCES RESERVAS (`ID`)
+  )
+ENGINE = InnoDB;
+
+
 
 -- --------------------------------------------------------
 

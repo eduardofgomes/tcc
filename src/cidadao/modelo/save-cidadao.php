@@ -87,18 +87,53 @@ session_start();
                             );
                         }
 
-                    } 
+                    } else{
+                        try{
+                            $TIPO_CIDADAO = '2';
+                            $stmt = $pdo->prepare('UPDATE USUARIO SET EMAIL = :a, SENHA = :b, TIPO_ID = :c WHERE ID = :id');
+                            $stmt->execute(array(
+                                ':id' => $ID,
+                                ':a' => $requestData['EMAIL'],
+                                ':b' => md5($requestData['SENHA']),
+                                ':c' => $TIPO_CIDADAO
+                            ));
+                            $sql = 'SELECT ID FROM USUARIO ORDER BY ID DESC LIMIT 1';
+                            $resultado = $pdo->query($sql);
+                            while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+                                $USUARIO_ID = $row['ID'];
+                            }
+                                $stmt = $pdo->prepare('UPDATE CIDADAO SET NOME = :a, CPF = :b, USUARIO_ID = :c, FOTO = :d WHERE ID = :id');
+                                $stmt->execute(array(
+                                ':a' => $requestData['NOME'],
+                                ':b' => $requestData['CPF'],
+                                ':c' => $USUARIO_ID,
+                                ':d' => $novoNome
+                            ));
+                            $dados = array(
+                                "tipo" => 'success',
+                                "mensagem" => 'Registro atualizado com sucesso.'
+                            );
 
-
+                            
+                        } catch (PDOException $e) {
+                            $dados = array(
+                                "tipo" => 'error',
+                                "mensagem" => 'Não foi possível efetuar a alteração do registro.'
+                            );
+                        }
+                    }  
                 }
+
+
+                
             }
             else
                 $dados = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão para editar essa área.');
         }
         else
             $dados = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.JPG, PNG ou JPEG"');
-    }
-    else
+    
+    }else
         $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!');
 
 

@@ -1,10 +1,11 @@
+
 $(document).ready(function() {
 
     $('.btn-save').click(function(e) {
 
         e.preventDefault();
 
-        url = "src/quadra/modelo/save-quadra.php"
+        url =  "src/quadra/modelo/save-quadra.php"
 
         var formData = new FormData(document.getElementById("form-quadra"))
 
@@ -26,6 +27,7 @@ $(document).ready(function() {
                 })
 
                 $('#modal-quadra').modal('hide')
+                $('#tabela-quadra').DataTable().ajax.reload()
             }
         })
     })

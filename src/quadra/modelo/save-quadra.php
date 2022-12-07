@@ -22,7 +22,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO QUADRA (NOME, NUMERO, BAIRRO, LOGRADOURO) VALUES (:a, :b, :c, :d)');
+                $stmt = $pdo->prepare('INSERT INTO QUADRAS (NOME, NUMERO, BAIRRO, LOGRADOURO) VALUES (:a, :b, :c, :d)');
                 $stmt->execute(array(
                     ':a' => $requestData['NOME'],
                     ':b' => $requestData['NUMERO'],
@@ -42,7 +42,7 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE QUADRA SET NOME = :a, NUMERO = :b, BAIRRO = :c, LOGRADOURO = :d WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE QUADRAS SET NOME = :a, NUMERO = :b, BAIRRO = :c, LOGRADOURO = :d WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                     ':a' => $requestData['NOME'],

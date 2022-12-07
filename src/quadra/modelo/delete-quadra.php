@@ -4,7 +4,7 @@ include('../../conexao/conn.php');
 
 $ID = $_REQUEST['ID'];
 
-$sql = "DELETE FROM QUADRA WHERE ID = $ID";
+$sql = "DELETE FROM QUADRAS WHERE ID = $ID";
 
 $resultado = $pdo->query($sql);
 

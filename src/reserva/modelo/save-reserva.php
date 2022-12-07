@@ -7,9 +7,13 @@
     // Obter os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
 
+    
     $sql =$pdo->query("SELECT *, count(ID) as achou FROM CIDADAO WHERE ID");
     session_start();
-    $CIDADAO_ATIVO = $_SESSION['ID'];
+    $CIDADAO_ATIVO = $sql->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['ID'] = $CIDADAO_ATIVO['ID'];
+    print_r($sql);
+    
 
     // Verificação de campo obrigatórios do formulário
     if(empty($requestData['DIA'])){
@@ -27,9 +31,10 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA, CIDADAO_ID) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA, CIDADAO_ID) VALUES (:a, :b)');
                 $stmt->execute(array(
-                    ':a' => $requestData['DIA']
+                    ':a' => $requestData['DIA'],
+                    ':b' => $CIDADAO_ATIVO
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -44,10 +49,11 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE RESERVAS SET DIA = :a WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE RESERVAS SET DIA = :a, CIDADAO_ID = :b WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => $requestData['DIA']
+                    ':a' => $requestData['DIA'],
+                    ':b' =>  $_SESSION['ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',

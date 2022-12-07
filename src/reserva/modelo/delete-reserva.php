@@ -4,7 +4,7 @@ include('../../conexao/conn.php');
 
 $ID = $_REQUEST['ID'];
 
-$sql = "DELETE FROM reserva WHERE ID = $ID";
+$sql = "DELETE FROM RESERVAS WHERE ID = $ID";
 
 $resultado = $pdo->query($sql);
 

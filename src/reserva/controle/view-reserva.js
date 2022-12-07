@@ -20,27 +20,9 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/reserva/visao/form-reserva.html', function() {
-                        $('#DATA').val(dado.dados.DATA)
-                        $('#DATA').attr('readonly', 'true')
+                        $('#DIA').val(dado.dados.DATA)
+                        $('#DIA').attr('readonly', 'true')
                         $('#USUARIO_ID').empty()
-
-                        var USUARIO_ID = dado.dados.USUARIO_ID
-
-                        //Consultar todos os tipos cadastrados no banco de daods
-                        $.ajax({
-                            dataType: 'json',
-                            type: 'POST',
-                            assync: true,
-                            url: 'src/tipo/modelo/all-tipo.php',
-                            success: function(dados) {
-                                for (const result of dados) {
-                                    if (result.ID == USUARIO_ID) {
-                                        $('#USUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
-                                    }
-
-                                }
-                            }
-                        })
 
                     })
                     $('.btn-save').hide()

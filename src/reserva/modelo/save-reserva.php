@@ -7,7 +7,7 @@
     $requestData = $_REQUEST;
 
     // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['DATA'])){
+    if(empty($requestData['DIA'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
@@ -22,9 +22,9 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO TIPO (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA) VALUES (:a)');
                 $stmt->execute(array(
-                    ':a' => $requestData['DATA']
+                    ':a' => $requestData['DIA']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -33,16 +33,16 @@
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do usuario.'
+                    "mensagem" => 'Não foi possível efetuar a reserva.'
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE RESERVAS SET DIA = :a WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => $requestData['DATA']
+                    ':a' => $requestData['DIA']
                 ));
                 $dados = array(
                     "tipo" => 'success',

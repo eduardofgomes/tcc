@@ -9,8 +9,6 @@ $(document).ready(function() {
 
         $('.modal-body').load('src/cidadao/visao/form-cidadao.html')
 
-        $(mascara('#CPF'))
-
         $('.btn-save').show()
         $('.btn-save').attr('data-operation', 'insert')
         $('#modal-cidadao').modal('show')

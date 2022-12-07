@@ -6,6 +6,8 @@
     // Obter os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
 
+    $sql =$pdo->query("SELECT *, count(ID) as achou FROM CIDADAO WHERE ID  ='".$_REQUEST['ID']"'");
+
     // Verificação de campo obrigatórios do formulário
     if(empty($requestData['DIA'])){
         // Caso a variável venha vazia eu gero um retorno de erro do mesmo

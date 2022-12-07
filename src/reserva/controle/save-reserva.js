@@ -25,9 +25,8 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
 
-                $(location).attr('href', 'home.html')
-
                 $('#modal-reserva').modal('hide')
+                $('#tabela-reserva').DataTable().ajax.reload()
             }
         })
     })

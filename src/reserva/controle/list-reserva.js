@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#table-reservas').DataTable({
+    $('#table-reserva').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {

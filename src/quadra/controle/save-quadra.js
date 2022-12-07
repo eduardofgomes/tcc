@@ -1,23 +1,19 @@
-
 $(document).ready(function() {
 
     $('.btn-save').click(function(e) {
 
         e.preventDefault();
 
-        url =  "src/quadra/modelo/save-quadra.php"
+        let dados = $('#form-quadra').serialize()
 
-        var formData = new FormData(document.getElementById("form-quadra"))
+        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            data: formData,
-            url: url,
-            mimeType: "multipart/form-data",
-            contentType: false,
-            cache: false,
-            processData: false,
+            assync: true,
+            data: dados,
+            url: 'src/quadra/modelo/save-quadra.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'SGQP',

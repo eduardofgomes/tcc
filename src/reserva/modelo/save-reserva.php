@@ -3,10 +3,13 @@
     // Obter a nossa conexão com o banco de dados
     include('../../conexao/conn.php');
 
+    
     // Obter os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
 
-    $sql =$pdo->query("SELECT *, count(ID) as achou FROM CIDADAO WHERE ID  ='".$_REQUEST['ID']"'");
+    $sql =$pdo->query("SELECT *, count(ID) as achou FROM CIDADAO WHERE ID");
+    session_start();
+    $CIDADAO_ATIVO = $_SESSION['ID'];
 
     // Verificação de campo obrigatórios do formulário
     if(empty($requestData['DIA'])){
@@ -24,7 +27,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA, CIDADAO_ID) VALUES (:a)');
                 $stmt->execute(array(
                     ':a' => $requestData['DIA']
                 ));

@@ -24,14 +24,14 @@ $(document).ready(function() {
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#SENHA').val(dado.dados.SENHA)
                         $('#CPF').val(dado.dados.CPF)
-                        $('#FOTO').val(dado.dados.FOTO)
+                        $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()
                     $('#modal-cidadao').modal('show')
                 } else {
                     Swal.fire({
-                        title: 'quadra',
+                        title: 'SGQP',
                         text: dado.mensagem,
                         type: dado.tipo,
                         confirmButtonText: 'OK'

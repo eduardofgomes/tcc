@@ -1,22 +1,20 @@
+
 $(document).ready(function() {
 
     $('.btn-save').click(function(e) {
 
         e.preventDefault();
 
-        url = "src/reserva/modelo/save-reserva.php"
+        let dados = $('#form-reserva').serialize()
 
-        var formData = new FormData(document.getElementById("form-reserva"))
+        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            data: formData,
-            url: url,
-            mimeType: "multipart/form-data",
-            contentType: false,
-            cache: false,
-            processData: false,
+            assync: true,
+            data: dados,
+            url: 'src/reserva/modelo/save-reserva.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'SGQP',
@@ -26,7 +24,7 @@ $(document).ready(function() {
                 })
 
                 $('#modal-reserva').modal('hide')
-                $('#tabela-reserva').DataTable().ajax.reload()
+                $('#table-reserva').DataTable().ajax.reload()
             }
         })
     })

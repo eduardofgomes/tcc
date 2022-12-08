@@ -2,7 +2,7 @@
 
     include('../../conexao/conn.php');
 
-    $sql = "SELECT * FROM HORA ORDER BY ID, HORARIO DESC";
+    $sql = "SELECT * FROM HORARIO ORDER BY ID, HORARIO DESC";
 
     $resultado = $pdo->query($sql);
 

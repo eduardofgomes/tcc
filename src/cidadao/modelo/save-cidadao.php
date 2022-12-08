@@ -77,8 +77,15 @@ session_start();
                                 "mensagem" => 'Cidadão cadastrado com sucesso.'
                             );
 
+                            $sql = 'SELECT * FROM CIDADAO ORDER BY ID DESC LIMIT 1';
+                            $sql = $pdo->query($sql);
+                            $resultado = $sql->fetch(PDO::FETCH_ASSOC);
+
+
                             $_SESSION['EMAIL'] = $requestData['EMAIL'];
                             $_SESSION['SENHA'] = md5($requestData['SENHA']);
+                            $_SESSION['ID'] = $resultado['ID'];
+
 
                         } catch(PDOException $e) {
                             $dados = array(
@@ -134,7 +141,7 @@ session_start();
             $dados = array ('mensagem' => 'Você poderá enviar apenas arquivos "*.JPG, PNG ou JPEG"');
     
     }else
-        $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!');
+        $dados = array ('mensagem' => 'Você não enviou nenhum arquivo!'); 
 
 
     echo json_encode($dados);

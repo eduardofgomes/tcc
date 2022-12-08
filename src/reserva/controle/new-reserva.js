@@ -13,13 +13,36 @@ $(document).ready(function() {
             dataType: 'json',
             type: 'POST',
             assync: true,
-            url: 'src/tipo/modelo/all-tipo.php',
+            url: 'src/reserva/modelo/all-quadra.php',
             success: function(dados){
                 for(const result of dados){
-                    $('#TIPO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
+                    $('#QUADRAS').append(`<option value="${result.ID}">${result.NOME}</option>`)
                 }
             }  
         })
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            assync: true,
+            url: 'src/reserva/modelo/all-data.php',
+            success: function(dados){
+                for(const result of dados){
+                    $('#DIA').append(`<option value="${result.ID}">${result.DIA}</option>`)
+                }
+            }  
+        })
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            assync: true,
+            url: 'src/reserva/modelo/all-horario.php',
+            success: function(dados){
+                for(const result of dados){
+                    $('#HORARIO').append(`<option value="${result.ID}">${result.HORARIO}</option>`)
+                }
+            }  
+        })
+        
         $('.btn-save').show()
         $('.btn-save').attr('data-operation', 'insert')
         $('#modal-reserva').modal('show')
@@ -30,6 +53,6 @@ $(document).ready(function() {
         e.preventDefault()
         $('#modal-reserva').modal('hide')
     })
-    
+
     })
 })

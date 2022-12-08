@@ -25,9 +25,8 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
 
-                $(location).attr('href', 'home.html')
-
                 $('#modal-cidadao').modal('hide')
+                $('#tabela-cidadao').DataTable().ajax.reload()
             }
         })
     })

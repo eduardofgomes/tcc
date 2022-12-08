@@ -8,11 +8,13 @@
     $requestData = $_REQUEST;
 
     
-    $sql =$pdo->query("SELECT *, count(ID) as achou FROM CIDADAO WHERE ID");
+    //$sql =$pdo->query("SELECT *, count(ID) as achou FROM CIDADAO WHERE ID");
     session_start();
-    $CIDADAO_ATIVO = $sql->fetch(PDO::FETCH_ASSOC);
-    $_SESSION['ID'] = $CIDADAO_ATIVO['ID'];
-    print_r($sql);
+    $CIDADAO = $_SESSION['ID'];
+    $DIA = $requestData['DIA'];
+    $HORARIO = $requestData['HORARIO'];
+    $QUADRA = $requestData['QUADRAS'];
+    
     
 
     // Verificação de campo obrigatórios do formulário
@@ -30,41 +32,39 @@
         // Verifica se é para cadastrar um novo registro
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
-            try{
-                $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA, CIDADAO_ID) VALUES (:a, :b)');
-                $stmt->execute(array(
-                    ':a' => $requestData['DIA'],
-                    ':b' => $CIDADAO_ATIVO
-                ));
-                $dados = array(
-                    "tipo" => 'success',
-                    "mensagem" => 'Registro salvo com sucesso.'
-                );
-            } catch(PDOException $e) {
+            $sql = "SELECT COUNT(ID) AS ACHOU FROM RESERVAS WHERE QUADRAS_ID = $QUADRA AND DIA_ID = $DIA AND HORARIO_ID = $HORARIO";
+            $sql = $pdo->query($sql);
+            $resultado = $sql->fetch(PDO::FETCH_ASSOC);
+            if($resultado['ACHOU'] > 0) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar a reserva.'
+                    "mensagem" => 'Este horário já foi reservado.'
                 );
+            } else {
+                try{               
+
+                
+                    $stmt = $pdo->prepare('INSERT INTO RESERVAS (DIA_ID, HORARIO_ID, QUADRAS_ID, CIDADAO_ID) VALUES (:a, :b, :c, :d)');
+                    $stmt->execute(array(
+                        ':a' => $requestData['DIA'],
+                        ':b' => $requestData['HORARIO'],
+                        ':c' => $requestData['QUADRAS'],
+                        ':d' => $CIDADAO
+                    ));
+                    $dados = array(
+                        "tipo" => 'success',
+                        "mensagem" => 'Registro salvo com sucesso.'
+                    );
+                } catch(PDOException $e) {
+                    $dados = array(
+                        "tipo" => 'error',
+                        "mensagem" => 'Não foi possível efetuar a reserva.'
+                    );
+                }
             }
+            
         } else {
-            // Se minha variável operação estiver vazia então devo gerar os scripts de update
-            try{
-                $stmt = $pdo->prepare('UPDATE RESERVAS SET DIA = :a, CIDADAO_ID = :b WHERE ID = :id');
-                $stmt->execute(array(
-                    ':id' => $ID,
-                    ':a' => $requestData['DIA'],
-                    ':b' =>  $_SESSION['ID']
-                ));
-                $dados = array(
-                    "tipo" => 'success',
-                    "mensagem" => 'Registro atualizado com sucesso.'
-                );
-            } catch (PDOException $e) {
-                $dados = array(
-                    "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar a alteração do registro.'
-                );
-            }
+        
         }
     }
 
